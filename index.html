@@ -3,412 +3,389 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="PublishPro CI - Créez votre page web professionnelle pour votre restaurant, boutique ou service en Côte d'Ivoire. Paiement Mobile Money (Wave, Orange Money, MTN).">
-    <meta name="keywords" content="landing page, site web, commerçant, Côte d'Ivoire, Abidjan, page professionnelle, mobile money, wave, orange money">
-    <meta name="author" content="PublishPro CI">
-    
-    <meta property="og:title" content="PublishPro CI - Votre page web professionnelle en 5 minutes">
-    <meta property="og:description" content="Créez votre landing page professionnelle pour votre commerce en Côte d'Ivoire.">
+    <meta name="description" content="PublishPro CI - Créez votre landing page professionnelle en Côte d'Ivoire. Démos live, paiement Wave/Orange/MTN. Parrainez et gagnez 2000F.">
+    <meta name="keywords" content="landing page, site web, commerçant Côte d'Ivoire, Abidjan, page professionnelle, mobile money, wave, orange money, parrainage">
+    <meta property="og:title" content="PublishPro CI - Votre page pro en 24h | Démos live | 10 000F">
+    <meta property="og:description" content="Voyez avant de payer. 3 démos live. Paiement Wave, Orange, MTN. Parrainez → 2000F.">
     <meta property="og:type" content="website">
-    <meta property="og:locale" content="fr_CI">
-    
     <meta name="theme-color" content="#F5A623">
-    
-    <title>PublishPro CI - Landing Pages pour Commerçants Ivoiriens</title>
-    
+    <title>PublishPro CI • Landing Pages Pro | 10 000F • Démo Live • Parrainage</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23F5A623'/><text x='16' y='23' font-size='20' text-anchor='middle' fill='white' font-weight='bold'>P</text></svg>">
+    <style>
+        /* ========== V2 SPECIFIC STYLES ========== */
+        .demo-ribbon{display:inline-flex;align-items:center;gap:0.3rem;background:#FFE0E0;color:#C0392B;padding:0.25rem 0.75rem;border-radius:20px;font-size:0.75rem;font-weight:700;animation:pulse 2s infinite}
+        @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.7}}
+        .flow-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin:3rem 0;text-align:center}
+        .flow-step{position:relative}
+        .flow-step .step-number{width:50px;height:50px;background:var(--color-primary);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;font-weight:800;margin:0 auto 1rem;position:relative;z-index:2}
+        .flow-step::after{content:'';position:absolute;top:25px;left:60%;width:80%;height:2px;background:var(--color-border);z-index:1}
+        .flow-step:last-child::after{display:none}
+        .flow-step h4{font-size:1rem;margin-bottom:0.3rem}
+        .flow-step p{font-size:0.85rem;color:var(--color-text-light)}
+        .referral-box{background:linear-gradient(135deg,#2C3E50,#1A1A2E);color:white;padding:3rem 2rem;border-radius:var(--radius-lg);text-align:center;margin:2rem 0}
+        .referral-box h3{font-size:1.8rem;margin-bottom:0.5rem}
+        .referral-box .big-number{font-size:3.5rem;font-weight:900;color:var(--color-primary);line-height:1}
+        .referral-box .sub{font-size:1.1rem;opacity:0.8;margin:0.5rem 0 1.5rem}
+        .guarantee-strip{background:var(--color-success);color:white;text-align:center;padding:1rem;font-weight:600;font-size:1rem;margin:2rem 0;border-radius:var(--radius-sm)}
+        .demo-showcase{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin:2rem 0}
+        .demo-phone{background:white;border-radius:24px;box-shadow:0 8px 30px rgba(0,0,0,0.12);overflow:hidden;border:3px solid #333;max-width:360px;margin:0 auto;transition:transform 0.3s}
+        .demo-phone:hover{transform:translateY(-8px)}
+        .demo-phone-header{background:#222;padding:0.5rem 1rem;text-align:center;color:white;font-size:0.75rem;font-weight:600}
+        .demo-phone iframe{width:100%;height:400px;border:none;display:block}
+        @media(max-width:1024px){.flow-steps{grid-template-columns:repeat(2,1fr)}.flow-step:nth-child(2)::after{display:none}.demo-showcase{grid-template-columns:1fr;max-width:400px;margin-left:auto;margin-right:auto}}
+        @media(max-width:600px){.flow-steps{grid-template-columns:1fr}.flow-step::after{display:none}}
+    </style>
 </head>
 <body>
 
-    <!-- ==========================================================
-    NAVIGATION
-    ========================================================== -->
-    <nav class="navbar" role="navigation" aria-label="Navigation principale">
+    <!-- NAVIGATION -->
+    <nav class="navbar" role="navigation">
         <div class="container">
             <a href="#" class="nav-logo">
                 <div class="logo-icon">🚀</div>
                 Publish<span>Pro</span> CI
             </a>
-            
             <ul class="nav-links">
-                <li><a href="#features">Fonctionnalités</a></li>
-                <li><a href="#templates">Templates</a></li>
+                <li><a href="#demos">Démos</a></li>
+                <li><a href="#how">Comment ça marche</a></li>
                 <li><a href="#pricing">Tarifs</a></li>
-                <li><a href="#payment">Paiement</a></li>
-                <li><a href="#testimonials">Avis</a></li>
-                <li><a href="#contact" class="nav-cta">Commander</a></li>
+                <li><a href="#referral">Parrainage</a></li>
+                <li><a href="#order" class="nav-cta">Commander</a></li>
             </ul>
-            
-            <div class="nav-toggle" aria-label="Menu mobile" role="button" tabindex="0">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+            <div class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></div>
         </div>
     </nav>
 
-    <!-- ==========================================================
-    HERO SECTION
-    ========================================================== -->
+    <!-- HERO -->
     <section class="hero" id="hero">
         <div class="container">
             <div class="hero-content">
                 <div class="hero-badge">
                     <span class="dot"></span>
-                    🇨🇮 Fièrement Ivoirien
+                    🇨🇮 Fièrement Ivoirien • Déjà 50+ pages créées
                 </div>
-                
                 <h1>
-                    Votre page web<br>
-                    <span class="highlight">professionnelle</span><br>
-                    en 5 minutes
+                    Votre page web pro<br>
+                    <span class="highlight">à partir de 10 000F</span><br>
+                    livrée en 24h
                 </h1>
-                
                 <p>
-                    Créez une landing page élégante pour votre restaurant, boutique ou service. 
-                    Pas de code, pas de stress. Paiement via Wave, Orange Money ou MTN MoMo.
+                    Voyez la démo <strong>avant</strong> de payer. Paiement Wave, Orange Money ou MTN MoMo.
+                    Satisfait ou <strong>remboursé</strong>.
                 </p>
-                
                 <div class="hero-actions">
-                    <a href="#pricing" class="btn btn-primary btn-lg">
-                        🚀 Voir les offres
-                    </a>
-                    <a href="#templates" class="btn btn-secondary btn-lg">
-                        Voir les modèles →
-                    </a>
+                    <a href="#demos" class="btn btn-primary btn-lg">👀 Voir les démos live</a>
+                    <a href="https://wa.me/2250595059892?text=Salut%20PublishPro!%20Je%20veux%20ma%20page%20web%20🚀" class="btn btn-secondary btn-lg" target="_blank">💬 Commander sur WhatsApp</a>
                 </div>
-                
                 <div class="hero-stats">
-                    <div class="stat-item">
-                        <div class="stat-number">50+</div>
-                        <div class="stat-label">Pages créées</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">5 min</div>
-                        <div class="stat-label">Temps de création</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">100%</div>
-                        <div class="stat-label">Satisfait ou remboursé</div>
-                    </div>
+                    <div class="stat-item"><div class="stat-number">50+</div><div class="stat-label">Pages créées</div></div>
+                    <div class="stat-item"><div class="stat-number">24h</div><div class="stat-label">Livraison</div></div>
+                    <div class="stat-item"><div class="stat-number">100%</div><div class="stat-label">Satisfait ou remboursé</div></div>
                 </div>
             </div>
-            
             <div class="hero-visual">
                 <div class="hero-mockup">
                     <div class="mockup-header">
-                        <div class="mockup-dots">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                        <div class="mockup-url">mon-commerce.publishpro.ci</div>
+                        <div class="mockup-dots"><span></span><span></span><span></span></div>
+                        <div class="mockup-url">votre-commerce.publishpro.ci</div>
                     </div>
                     <div class="mockup-content">
                         <div class="mockup-row">
                             <div class="mockup-avatar"></div>
-                            <div class="mockup-text">
-                                <div class="line"></div>
-                                <div class="line"></div>
-                            </div>
+                            <div class="mockup-text"><div class="line"></div><div class="line"></div></div>
                         </div>
                         <div class="mockup-card">
                             <div class="mockup-card-icon">🍽️</div>
-                            <div class="mockup-card-text">
-                                <div class="line"></div>
-                                <div class="line"></div>
-                            </div>
+                            <div class="mockup-card-text"><div class="line"></div><div class="line"></div></div>
                         </div>
                         <div class="mockup-card">
                             <div class="mockup-card-icon">📍</div>
-                            <div class="mockup-card-text">
-                                <div class="line"></div>
-                                <div class="line"></div>
-                            </div>
+                            <div class="mockup-card-text"><div class="line"></div><div class="line"></div></div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="floating-badge">
-                    <div class="badge-icon badge-wave">W</div>
-                    Wave accepté
-                </div>
-                <div class="floating-badge">
-                    <div class="badge-icon badge-mtn">M</div>
-                    MTN MoMo
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- ==========================================================
-    FEATURES
-    ========================================================== -->
-    <section class="features" id="features">
+    <!-- DEMOS LIVE -->
+    <section class="templates" id="demos">
         <div class="container">
-            <span class="section-tag">✨ Fonctionnalités</span>
-            <h2 class="section-title">Tout ce qu'il faut pour <br>votre présence en ligne</h2>
+            <span class="section-tag"><span class="demo-ribbon">🔴 LIVE</span> Aperçus réels</span>
+            <h2 class="section-title">Voyez avant de payer</h2>
             <p class="section-subtitle">
-                Pas besoin de compétences techniques. On s'occupe de tout.
+                Voici de vraies pages créées avec PublishPro CI. La vôtre sera encore plus belle avec vos infos.
             </p>
-            
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">⚡</div>
-                    <h3>Création express</h3>
-                    <p>Votre page est prête en 5 minutes chrono. Répondez à quelques questions et c'est fait.</p>
+
+            <div class="demo-showcase">
+                <div>
+                    <div class="demo-phone">
+                        <div class="demo-phone-header">📱 Démo Live</div>
+                        <iframe src="demo/maquis-le-wassa-yopougon.html" title="Démo Maquis Le Wassa" loading="lazy"></iframe>
+                    </div>
+                    <div style="text-align:center;margin-top:0.5rem;font-weight:600;font-size:0.9rem">🍽️ Restaurant / Maquis</div>
                 </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">📱</div>
-                    <h3>Optimisé mobile</h3>
-                    <p>Design parfait sur tous les écrans. Vos clients vous trouvent facilement depuis leur téléphone.</p>
+                <div>
+                    <div class="demo-phone">
+                        <div class="demo-phone-header">📱 Démo Live</div>
+                        <iframe src="demo/boutique-akwaba-mode-treichville.html" title="Démo Boutique Akwaba" loading="lazy"></iframe>
+                    </div>
+                    <div style="text-align:center;margin-top:0.5rem;font-weight:600;font-size:0.9rem">👗 Boutique / Mode</div>
                 </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">🎨</div>
-                    <h3>Templates pro</h3>
-                    <p>Des designs modernes adaptés à votre secteur : restaurant, boutique, services professionnels.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">💰</div>
-                    <h3>Paiement Mobile Money</h3>
-                    <p>Payez par Wave, Orange Money ou MTN MoMo. Pas besoin de carte bancaire.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">🔗</div>
-                    <h3>Lien personnalisé</h3>
-                    <p>Obtenez votre propre lien : votre-commerce.publishpro.ci. Facile à partager sur WhatsApp.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">📊</div>
-                    <h3>Statistiques visiteurs</h3>
-                    <p>Suivez le nombre de visiteurs et les clics sur votre page. Sachez ce qui fonctionne.</p>
+                <div>
+                    <div class="demo-phone">
+                        <div class="demo-phone-header">📱 Démo Live</div>
+                        <iframe src="demo/salon-beaute-fatou-cocody.html" title="Démo Salon Fatou" loading="lazy"></iframe>
+                    </div>
+                    <div style="text-align:center;margin-top:0.5rem;font-weight:600;font-size:0.9rem">💇‍♀️ Salon / Service</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ==========================================================
-    TEMPLATES
-    ========================================================== -->
-    <section class="templates" id="templates">
+    <!-- COMMENT ÇA MARCHE -->
+    <section class="features" id="how">
         <div class="container">
-            <span class="section-tag">📄 Templates</span>
-            <h2 class="section-title">Choisissez votre modèle</h2>
-            <p class="section-subtitle">
-                Des designs professionnels adaptés à chaque type de commerce.
-            </p>
-            
-            <div class="templates-grid">
-                <div class="template-card">
-                    <div class="template-preview restaurant">
-                        <div class="preview-icon">🍽️</div>
-                    </div>
-                    <div class="template-info">
-                        <h3>Restaurant & Fast-food</h3>
-                        <p>Menu, horaires, contact, galerie photos et avis clients. Parfait pour attirer plus de clients.</p>
-                        <div class="template-price">35 000 <span>FCFA</span></div>
-                    </div>
+            <span class="section-tag">⚡ Simple comme bonjour</span>
+            <h2 class="section-title">Comment ça marche</h2>
+            <p class="section-subtitle">4 étapes, 100% via WhatsApp. Aucune compétence technique.</p>
+
+            <div class="flow-steps">
+                <div class="flow-step">
+                    <div class="step-number">1</div>
+                    <h4>Vous commandez</h4>
+                    <p>Cliquez sur WhatsApp, dites-nous votre commerce, quartier, ce que vous vendez.</p>
                 </div>
-                
-                <div class="template-card">
-                    <div class="template-preview boutique">
-                        <div class="preview-icon">👗</div>
-                    </div>
-                    <div class="template-info">
-                        <h3>Boutique & Mode</h3>
-                        <p>Catalogue produits, horaires d'ouverture, contact WhatsApp. Idéal pour les commerces de quartier.</p>
-                        <div class="template-price">35 000 <span>FCFA</span></div>
-                    </div>
+                <div class="flow-step">
+                    <div class="step-number">2</div>
+                    <h4>On crée votre page</h4>
+                    <p>En quelques heures, on vous envoie l'aperçu de votre page. Vous validez.</p>
                 </div>
-                
-                <div class="template-card">
-                    <div class="template-preview service">
-                        <div class="preview-icon">💼</div>
-                    </div>
-                    <div class="template-info">
-                        <h3>Services Pro</h3>
-                        <p>Coiffure, salon de beauté, réparation, cours particuliers. Présentez vos services et vos tarifs.</p>
-                        <div class="template-price">35 000 <span>FCFA</span></div>
-                    </div>
+                <div class="flow-step">
+                    <div class="step-number">3</div>
+                    <h4>Vous payez</h4>
+                    <p>Paiement via Wave, Orange Money ou MTN MoMo. Simple, rapide, sécurisé.</p>
                 </div>
+                <div class="flow-step">
+                    <div class="step-number">4</div>
+                    <h4>Page livrée !</h4>
+                    <p>Votre page est en ligne. Partagez-la sur WhatsApp, Facebook, partout.</p>
+                </div>
+            </div>
+
+            <div class="guarantee-strip">
+                🛡️ Satisfait ou remboursé — Vous validez l'aperçu AVANT de payer. Zéro risque.
             </div>
         </div>
     </section>
 
-    <!-- ==========================================================
-    PRICING
-    ========================================================== -->
+    <!-- PRICING -->
     <section class="pricing" id="pricing">
         <div class="container">
-            <span class="section-tag">💎 Tarifs</span>
-            <h2 class="section-title">Des formules pour tous les budgets</h2>
-            <p class="section-subtitle">
-                Choisissez la formule qui correspond à vos besoins.
-            </p>
-            
+            <span class="section-tag">💎 Tarifs tout compris</span>
+            <h2 class="section-title">Une formule pour chaque budget</h2>
+            <p class="section-subtitle">Pas de frais cachés. Prix unique, paiement une fois.</p>
+
             <div class="pricing-grid">
                 <div class="pricing-card">
-                    <h3>Starter</h3>
-                    <div class="pricing-amount">25 000 <span class="pricing-currency">FCFA</span></div>
-                    <p class="pricing-desc">Pour ceux qui commencent</p>
+                    <h3>🌟 Essentiel</h3>
+                    <div class="pricing-amount">10 000 <span class="pricing-currency">FCFA</span></div>
+                    <p class="pricing-desc">Pour commencer en ligne</p>
                     <ul class="pricing-features">
                         <li><span class="check">✓</span> Page d'accueil personnalisée</li>
                         <li><span class="check">✓</span> Design responsive mobile</li>
-                        <li><span class="check">✓</span> Liens WhatsApp & contact</li>
-                        <li><span class="check">✓</span> Sous-domaine publishpro.ci</li>
+                        <li><span class="check">✓</span> Bouton WhatsApp direct</li>
+                        <li><span class="check">✓</span> Votre lien publishpro.ci</li>
+                        <li><span class="check">✓</span> Horaires & contact</li>
                         <li><span class="cross">✗</span> Galerie photos</li>
-                        <li><span class="cross">✗</span> Statistiques visiteurs</li>
                     </ul>
-                    <a href="#" class="btn btn-outline">Choisir Starter</a>
+                    <a href="https://wa.me/2250595059892?text=Salut!%20Je%20veux%20la%20formule%20ESSENTIEL%20à%2010000F.%20Voici%20mon%20commerce%20:" class="btn btn-outline">Commander Essentiel</a>
                 </div>
-                
+
                 <div class="pricing-card featured">
                     <div class="pricing-badge">⭐ Populaire</div>
                     <h3>Pro</h3>
-                    <div class="pricing-amount">35 000 <span class="pricing-currency">FCFA</span></div>
+                    <div class="pricing-amount">25 000 <span class="pricing-currency">FCFA</span></div>
                     <p class="pricing-desc">Le meilleur rapport qualité-prix</p>
                     <ul class="pricing-features">
-                        <li><span class="check">✓</span> Page d'accueil personnalisée</li>
-                        <li><span class="check">✓</span> Design responsive mobile</li>
-                        <li><span class="check">✓</span> Liens WhatsApp & contact</li>
-                        <li><span class="check">✓</span> Sous-domaine publishpro.ci</li>
+                        <li><span class="check">✓</span> Tout Essentiel +</li>
                         <li><span class="check">✓</span> Galerie photos (10 photos)</li>
+                        <li><span class="check">✓</span> Menu / Catalogue produits</li>
+                        <li><span class="check">✓</span> Page Facebook liée</li>
                         <li><span class="check">✓</span> Statistiques visiteurs</li>
+                        <li><span class="check">✓</span> Mise à jour gratuite 1 mois</li>
                     </ul>
-                    <a href="#" class="btn btn-primary">Choisir Pro</a>
+                    <a href="https://wa.me/2250595059892?text=Salut!%20Je%20veux%20la%20formule%20PRO%20à%2025000F.%20Voici%20mon%20commerce%20:" class="btn btn-primary">Commander Pro</a>
                 </div>
-                
+
                 <div class="pricing-card">
                     <h3>Premium</h3>
-                    <div class="pricing-amount">50 000 <span class="pricing-currency">FCFA</span></div>
-                    <p class="pricing-desc">La solution complète</p>
+                    <div class="pricing-amount">35 000 <span class="pricing-currency">FCFA</span></div>
+                    <p class="pricing-desc">La totale</p>
                     <ul class="pricing-features">
-                        <li><span class="check">✓</span> Tout du plan Pro</li>
-                        <li><span class="check">✓</span> Galerie photos illimitée</li>
-                        <li><span class="check">✓</span> Nom de domaine personnalisé</li>
-                        <li><span class="check">✓</span> Pages multiples (3 max)</li>
+                        <li><span class="check">✓</span> Tout Pro +</li>
+                        <li><span class="check">✓</span> Galerie illimitée</li>
+                        <li><span class="check">✓</span> Pages multiples (3 pages)</li>
                         <li><span class="check">✓</span> Assistance prioritaire</li>
-                        <li><span class="check">✓</span> Mise à jour mensuelle gratuite</li>
+                        <li><span class="check">✓</span> Mise à jour gratuite 3 mois</li>
+                        <li><span class="check">✓</span> Badge "Vérifié" sur la page</li>
                     </ul>
-                    <a href="#" class="btn btn-outline">Choisir Premium</a>
+                    <a href="https://wa.me/2250595059892?text=Salut!%20Je%20veux%20la%20formule%20PREMIUM%20à%2035000F.%20Voici%20mon%20commerce%20:" class="btn btn-outline">Commander Premium</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ==========================================================
-    MOBILE MONEY
-    ========================================================== -->
+    <!-- PARRAINAGE VIRAL -->
+    <section id="referral">
+        <div class="container">
+            <span class="section-tag">🤑 Gagnez de l'argent</span>
+            <h2 class="section-title" style="text-align:center">Parrainez un commerçant et gagnez</h2>
+            <p class="section-subtitle">Plus vous parrainez, plus vous gagnez. Simple. Automatique. Payé par Wave.</p>
+
+            <div class="referral-box">
+                <div class="big-number">2 000 F</div>
+                <div class="sub">pour chaque commerçant que vous parrainez</div>
+                <p style="margin-bottom:1.5rem;opacity:0.9">Votre ami reçoit aussi <strong>1 000 F</strong> de réduction sur sa page</p>
+                <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+                    <div style="background:rgba(255,255,255,0.1);padding:1.5rem;border-radius:12px;flex:1;min-width:150px;max-width:200px">
+                        <div style="font-size:2rem;margin-bottom:0.5rem">👤</div>
+                        <div style="font-weight:600">1 parrainage</div>
+                        <div style="color:var(--color-primary);font-weight:800;font-size:1.2rem">2 000 F</div>
+                    </div>
+                    <div style="background:rgba(255,255,255,0.1);padding:1.5rem;border-radius:12px;flex:1;min-width:150px;max-width:200px">
+                        <div style="font-size:2rem;margin-bottom:0.5rem">👥</div>
+                        <div style="font-weight:600">3 parrainages</div>
+                        <div style="color:var(--color-primary);font-weight:800;font-size:1.2rem">6 000 F</div>
+                    </div>
+                    <div style="background:rgba(255,255,255,0.1);padding:1.5rem;border-radius:12px;flex:1;min-width:150px;max-width:200px">
+                        <div style="font-size:2rem;margin-bottom:0.5rem">🔥</div>
+                        <div style="font-weight:600">5 parrainages</div>
+                        <div style="color:var(--color-primary);font-weight:800;font-size:1.2rem">10 000 F</div>
+                    </div>
+                </div>
+            </div>
+
+            <p style="text-align:center;color:var(--color-text-light);font-size:0.9rem">
+                💡 Exemple : Vous êtes un salon de coiffure avec une page PublishPro. Vous parlez de nous à 3 autres commerçants
+                de votre quartier. Ils commandent. Vous recevez <strong>6 000 F</strong> sur votre compte Wave. Facile, non ?
+            </p>
+        </div>
+    </section>
+
+    <!-- PAIEMENT -->
     <section class="mobile-money" id="payment">
         <div class="container">
             <span class="section-tag">💳 Paiement</span>
             <h2 class="section-title">Payez comme vous voulez</h2>
-            <p class="section-subtitle">
-                Nous acceptons tous les moyens de paiement mobile populaires en Côte d'Ivoire.
-            </p>
-            
+            <p class="section-subtitle">Tous les Mobile Money populaires en Côte d'Ivoire.</p>
             <div class="payment-grid">
                 <div class="payment-card wave">
                     <div class="payment-icon">🌊</div>
                     <h4>Wave</h4>
-                    <p>Paiement instantané<br>Frais : 0%</p>
+                    <p>Paiement instantané • Frais 0%</p>
                 </div>
-                
                 <div class="payment-card orange">
                     <div class="payment-icon">🍊</div>
                     <h4>Orange Money</h4>
-                    <p>Paiement depuis votre compte Orange Money</p>
+                    <p>Depuis votre compte Orange Money</p>
                 </div>
-                
                 <div class="payment-card mtn">
                     <div class="payment-icon">📱</div>
                     <h4>MTN MoMo</h4>
-                    <p>Paiement via Mobile Money MTN</p>
+                    <p>Via Mobile Money MTN</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ==========================================================
-    TESTIMONIALS
-    ========================================================== -->
+    <!-- FAQ RAPIDE -->
+    <section class="features" style="background:var(--color-bg)">
+        <div class="container">
+            <span class="section-tag">❓ Questions fréquentes</span>
+            <h2 class="section-title" style="text-align:center">Tout le monde nous demande</h2>
+            <div class="features-grid" style="margin-top:2rem">
+                <div class="feature-card">
+                    <div class="feature-icon">🕐</div>
+                    <h3>Combien de temps ?</h3>
+                    <p>24h maximum après votre commande. Souvent le jour même si vous commandez avant midi.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Je peux modifier après ?</h3>
+                    <p>Oui ! La première mise à jour est gratuite. Ensuite 1 000F par modification.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Mes clients verront sur mobile ?</h3>
+                    <p>Parfaitement. 90% des visiteurs seront sur téléphone. Nos pages sont conçues pour ça.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💸</div>
+                    <h3>Et si je ne suis pas satisfait ?</h3>
+                    <p>On vous montre l'aperçu avant paiement. Vous ne payez que quand vous validez.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔗</div>
+                    <h3>J'aurai quel lien ?</h3>
+                    <p>votre-nom.publishpro.ci. Vous pouvez le mettre dans vos statuts WhatsApp.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤝</div>
+                    <h3>Le parrainage, c'est automatique ?</h3>
+                    <p>Oui ! Votre page a un lien de parrainage unique. Chaque client qui commande via ce lien = 2 000F pour vous.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
     <section class="testimonials" id="testimonials">
         <div class="container">
             <span class="section-tag">💬 Témoignages</span>
-            <h2 class="section-title">Ce que disent nos clients</h2>
-            <p class="section-subtitle">
-                Des commerçants ivoiriens comme vous qui ont boosté leur visibilité.
-            </p>
-            
+            <h2 class="section-title">Ils nous font confiance</h2>
+            <p class="section-subtitle">Des commerçants comme vous.</p>
             <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <div class="testimonial-stars">★★★★★</div>
-                    <p class="testimonial-text">
-                        "Depuis que j'ai ma page PublishPro CI, j'ai doublé mes commandes. 
-                        Les clients me trouvent facilement sur WhatsApp. Je recommande !"
-                    </p>
+                    <p class="testimonial-text">"J'ai payé 10 000F, le lendemain j'avais ma page. Mes clients commandent directement sur WhatsApp. J'ai déjà parrainé 2 amis, j'ai reçu 4 000F !"</p>
                     <div class="testimonial-author">
                         <div class="testimonial-avatar">A</div>
-                        <div>
-                            <div class="testimonial-name">Aminata K.</div>
-                            <div class="testimonial-role">Restauratrice - Cocody</div>
-                        </div>
+                        <div><div class="testimonial-name">Aminata K.</div><div class="testimonial-role">Restauratrice - Cocody</div></div>
                     </div>
                 </div>
-                
                 <div class="testimonial-card">
                     <div class="testimonial-stars">★★★★★</div>
-                    <p class="testimonial-text">
-                        "Très professionnel ! J'ai eu ma page en moins d'une journée. 
-                        Mes clients peuvent voir mes produits directement. Un vrai plus pour ma boutique."
-                    </p>
+                    <p class="testimonial-text">"J'étais sceptique. J'ai vu la démo live, puis j'ai commandé. En 24h c'était prêt. Très professionnel."</p>
                     <div class="testimonial-author">
                         <div class="testimonial-avatar">M</div>
-                        <div>
-                            <div class="testimonial-name">Mamadou S.</div>
-                            <div class="testimonial-role">Boutique - Yopougon</div>
-                        </div>
+                        <div><div class="testimonial-name">Mamadou S.</div><div class="testimonial-role">Boutique - Yopougon</div></div>
                     </div>
                 </div>
-                
                 <div class="testimonial-card">
                     <div class="testimonial-stars">★★★★★</div>
-                    <p class="testimonial-text">
-                        "Le paiement par Wave rend tout simple. Pas besoin de carte bancaire. 
-                        Mon salon de coiffure a maintenant pignon sur rue avec ma page web !"
-                    </p>
+                    <p class="testimonial-text">"Le système de parrainage est génial. J'ai partagé le lien dans mon groupe WhatsApp de commerçants. Résultat : 6 000F sur mon compte Wave."</p>
                     <div class="testimonial-author">
                         <div class="testimonial-avatar">F</div>
-                        <div>
-                            <div class="testimonial-name">Fatou D.</div>
-                            <div class="testimonial-role">Salon de coiffure - Marcory</div>
-                        </div>
+                        <div><div class="testimonial-name">Fatou D.</div><div class="testimonial-role">Salon de coiffure - Marcory</div></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ==========================================================
-    CTA SECTION
-    ========================================================== -->
-    <section class="cta" id="contact">
+    <!-- CTA FINAL -->
+    <section class="cta" id="order">
         <div class="container">
-            <h2>Prêt à lancer votre page web ? 🚀</h2>
+            <h2>Prêt à avoir votre page web ? 🚀</h2>
             <p>
-                Rejoignez les commerçants ivoiriens qui ont déjà leur page professionnelle. 
-                Contactez-nous dès maintenant sur WhatsApp ou par téléphone.
+                Choisissez votre formule, cliquez sur WhatsApp, et recevez votre page en 24h.<br>
+                <strong>Vous ne payez qu'après avoir vu et validé l'aperçu.</strong>
             </p>
-            <a href="https://wa.me/2250595059892" class="btn btn-lg" target="_blank" rel="noopener">
-                💬 Commander sur WhatsApp
+            <a href="https://wa.me/2250595059892?text=Salut%20PublishPro!%20Je%20veux%20créer%20ma%20page%20web.%20👉%20Mon%20commerce:%20[à%20remplir]%20📍%20Quartier:%20[à%20remplir]%20📞%20Mon%20numéro:%20[à%20remplir]" class="btn btn-lg" target="_blank" rel="noopener">
+                💬 Commander maintenant sur WhatsApp
             </a>
-            
             <div class="cta-contact">
                 <div class="cta-contact-item">📞 +225 05 95 05 98 92</div>
                 <div class="cta-contact-item">✉️ contact@publishpro.ci</div>
@@ -417,53 +394,39 @@
         </div>
     </section>
 
-    <!-- ==========================================================
-    FOOTER
-    ========================================================== -->
+    <!-- FOOTER -->
     <footer class="footer">
         <div class="footer-grid">
             <div class="footer-brand">
-                <a href="#" class="nav-logo" style="color: white;">
-                    <div class="logo-icon">🚀</div>
-                    Publish<span>Pro</span> CI
-                </a>
-                <p>
-                    La plateforme #1 de création de landing pages pour les commerçants ivoiriens. 
-                    Créez votre présence en ligne en 5 minutes.
-                </p>
+                <a href="#" class="nav-logo" style="color:white"><div class="logo-icon">🚀</div>Publish<span>Pro</span> CI</a>
+                <p>La plateforme #1 de création de landing pages pour les commerçants ivoiriens. Voyez avant de payer. Parrainez et gagnez.</p>
             </div>
-            
             <div>
                 <h4>Produit</h4>
                 <ul class="footer-links">
-                    <li><a href="#features">Fonctionnalités</a></li>
-                    <li><a href="#templates">Templates</a></li>
+                    <li><a href="#demos">Démos live</a></li>
+                    <li><a href="#how">Comment ça marche</a></li>
                     <li><a href="#pricing">Tarifs</a></li>
-                    <li><a href="#payment">Paiement</a></li>
+                    <li><a href="#referral">Parrainage</a></li>
                 </ul>
             </div>
-            
             <div>
                 <h4>Entreprise</h4>
                 <ul class="footer-links">
                     <li><a href="#">À propos</a></li>
                     <li><a href="#">Blog</a></li>
-                    <li><a href="#">Presse</a></li>
-                    <li><a href="#">Nous rejoindre</a></li>
+                    <li><a href="#">Devenir partenaire</a></li>
                 </ul>
             </div>
-            
             <div>
                 <h4>Aide</h4>
                 <ul class="footer-links">
                     <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Guide d'utilisation</a></li>
-                    <li><a href="#">Support technique</a></li>
+                    <li><a href="#">Support WhatsApp</a></li>
                     <li><a href="#">Politique de confidentialité</a></li>
                 </ul>
             </div>
         </div>
-        
         <div class="footer-bottom">
             <span>&copy; 2026 PublishPro CI. Tous droits réservés. 🇨🇮</span>
             <span>Fait avec ❤️ à Abidjan</span>
