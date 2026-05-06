@@ -3,103 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Salon de Beauté Fatou - Coiffure, maquillage, soins à Cocody. Prenez rendez-vous.">
     <title>💇‍♀️ Salon de Beauté Fatou | Cocody - Abidjan</title>
+    <meta name="description" content="Salon de Beauté Fatou - Coiffure, maquillage, soins et onglerie à Cocody Saint-Jean.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+        :root{--gold:#D4A853;--dark:#1A1A2E;--green:#27AE60;--bg:#F5FDF7;--white:#fff;--text:#2D2D2D}
         *{margin:0;padding:0;box-sizing:border-box}
-        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#fafafa;color:#333}
-        .hero{background:linear-gradient(135deg,#1E8449,#27AE60);color:white;text-align:center;padding:4rem 1.5rem 2.5rem;position:relative;overflow:hidden}
-        .hero::after{content:'';position:absolute;bottom:-30px;left:0;right:0;height:60px;background:#fafafa;border-radius:50% 50% 0 0}
-        .hero h1{font-size:2.2rem;margin:0.5rem 0}
-        .hero .badge{display:inline-block;background:rgba(255,255,255,0.2);padding:0.4rem 1rem;border-radius:20px;font-size:0.85rem;margin-top:0.5rem}
-        .container{max-width:800px;margin:0 auto;padding:2rem 1.5rem}
-        .section{margin-bottom:2.5rem}
-        .section h2{color:#1E8449;font-size:1.4rem;margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:3px solid #27AE60;display:flex;align-items:center;gap:0.5rem}
-        .info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.8rem;margin-bottom:1.5rem}
-        .info-card{background:white;padding:1.2rem 0.8rem;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.04);text-align:center}
-        .info-card .icon{font-size:1.8rem;margin-bottom:0.3rem}
-        .info-card h3{font-size:0.8rem;color:#999;margin-bottom:0.2rem;text-transform:uppercase;letter-spacing:1px}
-        .info-card p{font-size:0.95rem;font-weight:600}
-        .btn-wa{display:flex;align-items:center;justify-content:center;gap:0.5rem;background:#25D366;color:white;text-decoration:none;padding:1rem 2rem;border-radius:50px;font-weight:700;font-size:1.1rem;margin:1.5rem 0;transition:transform 0.2s,box-shadow 0.2s}
-        .btn-wa:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(37,211,102,0.3)}
-        .service-card{background:white;padding:1.2rem 1.5rem;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.04);display:flex;justify-content:space-between;align-items:center;margin-bottom:0.8rem}
-        .service-card .name{font-weight:600}
-        .service-card .desc{font-size:0.85rem;color:#999;margin-top:0.2rem}
-        .service-card .price{font-weight:700;color:#27AE60;font-size:1.1rem}
-        .hours-table{width:100%;border-collapse:collapse}
-        .hours-table td{padding:0.7rem;border-bottom:1px solid #f0f0f0}
-        .hours-table td:last-child{text-align:right;font-weight:600}
-        .footer{text-align:center;padding:2rem;color:#999;font-size:0.8rem;border-top:1px solid #eee;margin-top:2rem}
-        @media(max-width:600px){.info-grid{grid-template-columns:repeat(3,1fr)}.hero h1{font-size:1.6rem}}
+        body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+
+        .hero-premium{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;color:white;overflow:hidden;background:linear-gradient(135deg,#0a2a15,#0d3d1f,#145c30)}
+        .hero-premium::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 60% 40%,rgba(39,174,96,0.25),transparent 60%),radial-gradient(ellipse at 30% 80%,rgba(212,168,83,0.1),transparent 50%);z-index:0}
+        .hero-premium::after{content:'';position:absolute;bottom:0;left:0;right:0;height:120px;background:linear-gradient(to top,var(--bg),transparent);z-index:2}
+        .hero-content{position:relative;z-index:1;max-width:700px;padding:2rem}
+        .hero-badge-premium{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(39,174,96,0.3);border:1px solid rgba(39,174,96,0.4);padding:0.6rem 1.5rem;border-radius:50px;font-size:0.85rem;font-weight:600;color:#6fcf97;margin-bottom:2rem;backdrop-filter:blur(10px)}
+        .hero-badge-premium .dot{width:8px;height:8px;background:#6fcf97;border-radius:50%;animation:glow-dot 2s infinite}
+        @keyframes glow-dot{0%,100%{box-shadow:0 0 0 0 rgba(39,174,96,0.6)}50%{box-shadow:0 0 16px 4px rgba(39,174,96,0.4)}}
+        .hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,6vw,4.5rem);font-weight:900;line-height:1.1;margin-bottom:1rem}
+        .hero-title .accent{color:#6fcf97;position:relative;display:inline-block}
+        .hero-title .accent::after{content:'';position:absolute;bottom:5px;left:0;right:0;height:6px;background:rgba(39,174,96,0.3);border-radius:3px}
+        .hero-subtitle{font-size:1.2rem;opacity:0.85;margin-bottom:2rem;font-weight:300;letter-spacing:1px}
+        .hero-features-row{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;margin-top:2.5rem}
+        .hero-feat{text-align:center;min-width:80px}
+        .hero-feat .num{font-size:1.8rem;font-weight:800;color:#6fcf97}
+        .hero-feat .lbl{font-size:0.75rem;opacity:0.6;text-transform:uppercase;letter-spacing:2px}
+        .scroll-indicator{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);z-index:3;animation:bounce 2s infinite}
+        .scroll-indicator span{display:block;width:30px;height:50px;border:2px solid rgba(255,255,255,0.4);border-radius:20px;position:relative}
+        .scroll-indicator span::after{content:'';position:absolute;top:8px;left:50%;transform:translateX(-50%);width:4px;height:10px;background:#6fcf97;border-radius:2px;animation:scroll-wheel 2s infinite}
+        @keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-10px)}}
+        @keyframes scroll-wheel{0%{top:8px;opacity:1}100%{top:30px;opacity:0}}
+
+        .section{padding:5rem 1.5rem}
+        .section-inner{max-width:900px;margin:0 auto}
+        .section-label{display:inline-block;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:3px;color:var(--green);margin-bottom:1rem}
+        .section-title{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:800;color:var(--dark);margin-bottom:1.5rem;position:relative;padding-bottom:1.5rem}
+        .section-title::after{content:'';position:absolute;bottom:0;left:0;width:60px;height:3px;background:linear-gradient(90deg,var(--green),var(--gold));border-radius:2px}
+        .info-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:2rem 0}
+        .info-card{background:white;padding:1.8rem 1.5rem;border-radius:16px;box-shadow:0 4px 24px rgba(0,0,0,0.04);text-align:center;transition:transform 0.3s,box-shadow 0.3s;border:1px solid rgba(0,0,0,0.04)}
+        .info-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.08)}
+        .info-card .icon-wrap{width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin:0 auto 1rem}
+        .info-card .icon-wrap:nth-child(1){background:linear-gradient(135deg,#E8F5E9,#C8E6C9);color:#27AE60}
+        .info-card .icon-wrap:nth-child(2){background:linear-gradient(135deg,#FFF3E0,#FFE0B2);color:#E65100}
+        .info-card .icon-wrap:nth-child(3){background:linear-gradient(135deg,#F3E5F5,#E1BEE7);color:#8E44AD}
+        .info-card h3{font-size:0.7rem;text-transform:uppercase;letter-spacing:2px;color:#999;margin-bottom:0.3rem}
+        .info-card p{font-weight:600;font-size:1rem}
+
+        .btn-primary-premium{display:inline-flex;align-items:center;gap:0.5rem;background:linear-gradient(135deg,#25D366,#20b858);color:white;text-decoration:none;padding:1.1rem 2.5rem;border-radius:50px;font-weight:700;font-size:1.05rem;transition:transform 0.3s,box-shadow 0.3s;box-shadow:0 8px 24px rgba(37,211,102,0.25)}
+        .btn-primary-premium:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(37,211,102,0.35)}
+        .btn-row{display:flex;justify-content:center;margin:2rem 0}
+
+        .service-list{display:grid;gap:0.8rem;margin:1.5rem 0}
+        .service-card{background:white;padding:1.5rem;border-radius:16px;box-shadow:0 4px 16px rgba(0,0,0,0.04);display:flex;justify-content:space-between;align-items:center;transition:transform 0.3s,box-shadow 0.3s}
+        .service-card:hover{transform:translateX(6px);box-shadow:0 12px 32px rgba(0,0,0,0.08)}
+        .service-card .sname{font-weight:600;font-size:1rem}
+        .service-card .sdesc{font-size:0.8rem;color:#999;margin-top:0.2rem}
+        .service-card .sprice{font-weight:700;color:#27AE60;font-size:1.1rem;white-space:nowrap}
+        .tag-premium{display:inline-flex;align-items:center;gap:0.2rem;background:#E8F5E9;color:#27AE60;font-size:0.65rem;padding:0.2rem 0.6rem;border-radius:4px;font-weight:700;text-transform:uppercase;margin-left:0.5rem}
+
+        .hours-premium{background:white;border-radius:16px;padding:2rem;box-shadow:0 4px 24px rgba(0,0,0,0.04)}
+        .hours-row{display:flex;justify-content:space-between;padding:0.8rem 0;border-bottom:1px solid #f0ece4}
+        .hours-row:last-child{border-bottom:none}
+        .hours-row .day{font-weight:500}.hours-row .time{font-weight:700;color:var(--dark)}
+
+        .footer-premium{background:linear-gradient(135deg,#0a2a15,#0d3d1f);color:white;text-align:center;padding:2.5rem 1.5rem}
+        .footer-premium .brand{font-family:'Playfair Display',serif;font-size:1.2rem;margin-bottom:0.5rem}
+        .footer-premium .brand span{color:#6fcf97}
+
+        @media(max-width:768px){.info-cards{grid-template-columns:repeat(3,1fr);gap:0.5rem}.service-card{flex-direction:column;text-align:center;gap:0.5rem}}
     </style>
 </head>
 <body>
 
-<div class="hero">
-    <h1>💇‍♀️ Salon de Beauté Fatou</h1>
-    <p>Coiffure • Maquillage • Soins • Onglerie</p>
-    <div class="badge">📍 Cocody St-Jean, Abidjan</div>
-</div>
+    <section class="hero-premium">
+        <div class="hero-content">
+            <div class="hero-badge-premium"><span class="dot"></span> Sur RDV • 8h-20h</div>
+            <h1 class="hero-title">Salon <span class="accent">Fatou</span></h1>
+            <p class="hero-subtitle">Coiffure • Maquillage • Soins • Onglerie</p>
+            <div class="hero-features-row">
+                <div class="hero-feat"><div class="num">10+</div><div class="lbl">Ans exp.</div></div>
+                <div class="hero-feat"><div class="num">500+</div><div class="lbl">Clientes</div></div>
+                <div class="hero-feat"><div class="num">4.9</div><div class="lbl">Note</div></div>
+            </div>
+        </div>
+        <div class="scroll-indicator"><span></span></div>
+    </section>
 
-<div class="container">
-
-    <a href="https://wa.me/2250595059892?text=Bonjour%20Salon%20Fatou!%20Je%20veux%20prendre%20rendez-vous%20💇‍♀️" class="btn-wa" target="_blank">
-        💬 Prendre rendez-vous sur WhatsApp
-    </a>
-
-    <div class="info-grid">
-        <div class="info-card"><div class="icon">📍</div><h3>Quartier</h3><p>Cocody St-Jean</p></div>
-        <div class="info-card"><div class="icon">🕐</div><h3>Horaires</h3><p>8h - 20h</p></div>
-        <div class="info-card"><div class="icon">📞</div><h3>Contact</h3><p>05 95 05 98 92</p></div>
+    <div style="text-align:center;margin-top:-60px;position:relative;z-index:3">
+        <a href="https://wa.me/2250595059892?text=Bonjour%20Salon%20Fatou!%20Je%20veux%20un%20RDV%20💇‍♀️" class="btn-primary-premium" target="_blank">💬 Prendre RDV sur WhatsApp</a>
     </div>
 
-    <div class="section">
-        <h2>💅 NOS SERVICES</h2>
-        <div class="service-card">
-            <div><div class="name">Coiffure Dame</div><div class="desc">Tresses, mèches, brushing</div></div>
-            <div class="price">5 000 - 15 000 F</div>
+    <div class="section"><div class="section-inner">
+        <div class="info-cards">
+            <div class="info-card"><div class="icon-wrap">📍</div><h3>Quartier</h3><p>Cocody Saint-Jean</p></div>
+            <div class="info-card"><div class="icon-wrap">🕐</div><h3>Horaires</h3><p>8h00 - 20h00</p></div>
+            <div class="info-card"><div class="icon-wrap">📞</div><h3>Contact</h3><p>05 95 05 98 92</p></div>
         </div>
-        <div class="service-card">
-            <div><div class="name">Maquillage</div><div class="desc">Naturel, glamour, mariage</div></div>
-            <div class="price">10 000 - 25 000 F</div>
-        </div>
-        <div class="service-card">
-            <div><div class="name">Onglerie</div><div class="desc">Manucure, pédicure, gel</div></div>
-            <div class="price">3 000 - 10 000 F</div>
-        </div>
-        <div class="service-card">
-            <div><div class="name">Soins Visage</div><div class="desc">Nettoyage, gommage, masque</div></div>
-            <div class="price">7 000 F</div>
-        </div>
-        <div class="service-card">
-            <div><div class="name">Coiffure Homme</div><div class="desc">Coupe, barbe, soin</div></div>
-            <div class="price">2 000 - 5 000 F</div>
-        </div>
-        <div class="service-card">
-            <div><div class="name">Forfait Mariage</div><div class="desc">Coiffure + Maquillage</div></div>
-            <div class="price">35 000 F</div>
-        </div>
-    </div>
+    </div></div>
 
-    <div class="section">
-        <h2>🕐 HORAIRES</h2>
-        <table class="hours-table">
-            <tr><td>Lundi - Vendredi</td><td>8h00 - 20h00</td></tr>
-            <tr><td>Samedi</td><td>8h00 - 22h00</td></tr>
-            <tr><td>Dimanche</td><td>10h00 - 18h00</td></tr>
-        </table>
-    </div>
+    <div class="section" style="background:white;padding-top:2rem"><div class="section-inner">
+        <span class="section-label">Nos prestations</span>
+        <h2 class="section-title">Soins & beauté</h2>
+        <div class="service-list">
+            <div class="service-card"><div><div class="sname">Coiffure Dame <span class="tag-premium">TOP</span></div><div class="sdesc">Tresses, mèches, brushing, lissage</div></div><div class="sprice">5 000 - 15 000 F</div></div>
+            <div class="service-card"><div><div class="sname">Maquillage</div><div class="sdesc">Naturel, glamour, mariage</div></div><div class="sprice">10 000 - 25 000 F</div></div>
+            <div class="service-card"><div><div class="sname">Onglerie</div><div class="sdesc">Manucure, pédicure, gel UV</div></div><div class="sprice">3 000 - 10 000 F</div></div>
+            <div class="service-card"><div><div class="sname">Soins Visage</div><div class="sdesc">Nettoyage, gommage, masque</div></div><div class="sprice">7 000 F</div></div>
+            <div class="service-card"><div><div class="sname">Forfait Mariage <span class="tag-premium">STAR</span></div><div class="sdesc">Coiffure + Maquillage + Soins</div></div><div class="sprice">35 000 F</div></div>
+            <div class="service-card"><div><div class="sname">Coiffure Homme</div><div class="sdesc">Coupe, barbe, soin capillaire</div></div><div class="sprice">2 000 - 5 000 F</div></div>
+        </div>
+    </div></div>
 
-    <a href="https://wa.me/2250595059892?text=Bonjour%20Salon%20Fatou!%20Je%20veux%20prendre%20RDV%20💇‍♀️" class="btn-wa" target="_blank">
-        💬 Prendre rendez-vous sur WhatsApp
-    </a>
+    <div class="section" style="background:var(--bg)"><div class="section-inner">
+        <span class="section-label">Infos</span>
+        <h2 class="section-title">Horaires</h2>
+        <div class="hours-premium">
+            <div class="hours-row"><span class="day">Lundi - Vendredi</span><span class="time">8h00 - 20h00</span></div>
+            <div class="hours-row"><span class="day">Samedi</span><span class="time">8h00 - 22h00</span></div>
+            <div class="hours-row"><span class="day">Dimanche</span><span class="time">10h00 - 18h00</span></div>
+        </div>
+    </div></div>
 
-</div>
+    <div class="btn-row" style="padding-bottom:3rem"><a href="https://wa.me/2250595059892?text=Bonjour%20Salon%20Fatou!%20RDV%20💇‍♀️" class="btn-primary-premium" target="_blank">💬 Prendre RDV sur WhatsApp</a></div>
 
-<div class="footer">
-    <p>© 2026 Salon de Beauté Fatou - Cocody St-Jean, Abidjan 🇨🇮</p>
-    <p>Page propulsée par <strong style="color:#F5A623">PublishPro CI</strong> 🚀</p>
-</div>
-
+    <footer class="footer-premium"><p class="brand">Salon <span>Fatou</span></p><p style="opacity:0.6;font-size:0.85rem">Cocody Saint-Jean, Abidjan 🇨🇮</p><p style="opacity:0.4;font-size:0.75rem;margin-top:0.5rem">Page propulsée par <strong>PublishPro CI</strong> 🚀</p></footer>
 </body>
 </html>

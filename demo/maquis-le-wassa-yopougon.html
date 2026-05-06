@@ -3,144 +3,237 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Maquis Le Wassa - Meilleur Attiéké Poisson de Yopougon. Commandez en ligne.">
     <title>🍽️ Maquis Le Wassa | Yopougon - Abidjan</title>
+    <meta name="description" content="Maquis Le Wassa - Meilleur Attiéké Poisson de Yopougon. Commandez en ligne.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+        :root{--gold:#D4A853;--dark:#1A1A2E;--red:#C0392B;--cream:#FFF8F0;--white:#fff;--text:#2D2D2D;--text-light:#777}
         *{margin:0;padding:0;box-sizing:border-box}
-        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#fafafa;color:#333}
-        .hero{background:linear-gradient(135deg,#C0392B,#E74C3C);color:white;text-align:center;padding:4rem 1.5rem 2.5rem;position:relative;overflow:hidden}
-        .hero::after{content:'';position:absolute;bottom:-30px;left:0;right:0;height:60px;background:#fafafa;border-radius:50% 50% 0 0}
-        .hero h1{font-size:2.2rem;margin:0.5rem 0}
-        .hero .stars{font-size:1.2rem;margin:0.5rem 0}
-        .hero .badge{display:inline-block;background:rgba(255,255,255,0.2);padding:0.4rem 1rem;border-radius:20px;font-size:0.85rem;margin-top:0.5rem}
-        .container{max-width:800px;margin:0 auto;padding:2rem 1.5rem}
-        .section{margin-bottom:2.5rem}
-        .section h2{color:#C0392B;font-size:1.4rem;margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:3px solid #E74C3C;display:flex;align-items:center;gap:0.5rem}
-        .info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.8rem;margin-bottom:1.5rem}
-        .info-card{background:white;padding:1.2rem 0.8rem;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.04);text-align:center}
-        .info-card .icon{font-size:1.8rem;margin-bottom:0.3rem}
-        .info-card h3{font-size:0.8rem;color:#999;margin-bottom:0.2rem;text-transform:uppercase;letter-spacing:1px}
-        .info-card p{font-size:0.95rem;font-weight:600}
-        .btn-wa{display:flex;align-items:center;justify-content:center;gap:0.5rem;background:#25D366;color:white;text-decoration:none;padding:1rem 2rem;border-radius:50px;font-weight:700;font-size:1.1rem;margin:1.5rem 0;transition:transform 0.2s,box-shadow 0.2s}
-        .btn-wa:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(37,211,102,0.3)}
-        .menu-item{display:flex;justify-content:space-between;align-items:center;padding:0.9rem 0;border-bottom:1px solid #f0f0f0}
-        .menu-item .name{font-weight:500;display:flex;align-items:center;gap:0.5rem}
-        .menu-item .price{font-weight:700;color:#C0392B;font-size:1.1rem}
-        .tag{background:#FFF3E0;color:#E65100;font-size:0.7rem;padding:0.2rem 0.5rem;border-radius:4px;font-weight:700}
-        .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:0.5rem;margin:1rem 0}
-        .gallery-item{aspect-ratio:1;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:2.5rem;color:white;font-weight:700}
-        .gallery-item:nth-child(1){background:linear-gradient(135deg,#E74C3C,#C0392B)}
-        .gallery-item:nth-child(2){background:linear-gradient(135deg,#F39C12,#E67E22)}
-        .gallery-item:nth-child(3){background:linear-gradient(135deg,#27AE60,#1E8449)}
-        .gallery-item:nth-child(4){background:linear-gradient(135deg,#8E44AD,#6C3483)}
-        .gallery-item:nth-child(5){background:linear-gradient(135deg,#2980B9,#1A5276)}
-        .gallery-item:nth-child(6){background:linear-gradient(135deg,#D35400,#A04000)}
-        .hours-table{width:100%;border-collapse:collapse}
-        .hours-table td{padding:0.7rem;border-bottom:1px solid #f0f0f0}
-        .hours-table td:last-child{text-align:right;font-weight:600}
-        .closed{color:#E74C3C}
-        .footer{text-align:center;padding:2rem;color:#999;font-size:0.8rem;border-top:1px solid #eee;margin-top:2rem}
-        .powered{background:#FFF;text-align:center;padding:0.5rem;font-size:0.75rem;color:#999;position:fixed;bottom:0;left:0;right:0;border-top:1px solid #eee}
-        .powered span{color:#F5A623;font-weight:700}
-        @media(max-width:600px){.info-grid{grid-template-columns:repeat(3,1fr)}.hero h1{font-size:1.6rem}}
+        body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text);line-height:1.6}
+
+        /* HERO PREMIUM */
+        .hero-premium{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;color:white;overflow:hidden;background:var(--dark)}
+        .hero-premium::before{content:'';position:absolute;inset:0;background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="30" r="15" fill="rgba(212,168,83,0.08)"/><circle cx="80" cy="70" r="20" fill="rgba(192,57,43,0.06)"/><circle cx="50" cy="50" r="25" fill="rgba(212,168,83,0.04)"/></svg>') center/cover;z-index:0}
+        .hero-premium::after{content:'';position:absolute;bottom:0;left:0;right:0;height:120px;background:linear-gradient(to top,var(--cream),transparent);z-index:2}
+        .hero-content{position:relative;z-index:1;max-width:700px;padding:2rem}
+        .hero-badge-premium{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(212,168,83,0.2);border:1px solid rgba(212,168,83,0.3);padding:0.6rem 1.5rem;border-radius:50px;font-size:0.85rem;font-weight:600;color:var(--gold);margin-bottom:2rem;backdrop-filter:blur(10px)}
+        .hero-badge-premium .dot{width:8px;height:8px;background:var(--gold);border-radius:50%;animation:glow-dot 2s infinite}
+        @keyframes glow-dot{0%,100%{box-shadow:0 0 0 0 rgba(212,168,83,0.6)}50%{box-shadow:0 0 16px 4px rgba(212,168,83,0.4)}}
+        .hero-stars{color:var(--gold);font-size:1.1rem;letter-spacing:2px;margin-bottom:1rem}
+        .hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,6vw,4.5rem);font-weight:900;line-height:1.1;margin-bottom:1rem}
+        .hero-title .accent{color:var(--gold);position:relative;display:inline-block}
+        .hero-title .accent::after{content:'';position:absolute;bottom:5px;left:0;right:0;height:6px;background:rgba(212,168,83,0.3);border-radius:3px}
+        .hero-subtitle{font-size:1.2rem;opacity:0.85;margin-bottom:2rem;font-weight:300;letter-spacing:1px}
+        .hero-features-row{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;margin-top:2.5rem}
+        .hero-feat{text-align:center;min-width:80px}
+        .hero-feat .num{font-size:1.8rem;font-weight:800;color:var(--gold)}
+        .hero-feat .lbl{font-size:0.75rem;opacity:0.6;text-transform:uppercase;letter-spacing:2px}
+
+        /* SCROLL INDICATOR */
+        .scroll-indicator{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);z-index:3;animation:bounce 2s infinite}
+        .scroll-indicator span{display:block;width:30px;height:50px;border:2px solid rgba(255,255,255,0.4);border-radius:20px;position:relative}
+        .scroll-indicator span::after{content:'';position:absolute;top:8px;left:50%;transform:translateX(-50%);width:4px;height:10px;background:var(--gold);border-radius:2px;animation:scroll-wheel 2s infinite}
+        @keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-10px)}}
+        @keyframes scroll-wheel{0%{top:8px;opacity:1}100%{top:30px;opacity:0}}
+
+        /* CONTENT SECTIONS */
+        .section{padding:5rem 1.5rem}
+        .section-inner{max-width:900px;margin:0 auto}
+        .section-label{display:inline-block;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:3px;color:var(--red);margin-bottom:1rem}
+        .section-title{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:800;color:var(--dark);margin-bottom:1.5rem;position:relative;padding-bottom:1.5rem}
+        .section-title::after{content:'';position:absolute;bottom:0;left:0;width:60px;height:3px;background:linear-gradient(90deg,var(--red),var(--gold));border-radius:2px}
+
+        /* INFO CARDS */
+        .info-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:2rem 0}
+        .info-card{background:white;padding:1.8rem 1.5rem;border-radius:16px;box-shadow:0 4px 24px rgba(0,0,0,0.04);text-align:center;transition:transform 0.3s,box-shadow 0.3s;border:1px solid rgba(0,0,0,0.04)}
+        .info-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.08)}
+        .info-card .icon-wrap{width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin:0 auto 1rem}
+        .info-card .icon-wrap.loc{background:linear-gradient(135deg,#FFE0E0,#FFD0D0);color:#C0392B}
+        .info-card .icon-wrap.time{background:linear-gradient(135deg,#FFF3E0,#FFE0B2);color:#E65100}
+        .info-card .icon-wrap.tel{background:linear-gradient(135deg,#E8F5E9,#C8E6C9);color:#2E7D32}
+        .info-card h3{font-size:0.7rem;text-transform:uppercase;letter-spacing:2px;color:#999;margin-bottom:0.3rem}
+        .info-card p{font-weight:600;font-size:1rem}
+
+        /* CTA BUTTON */
+        .btn-primary-premium{display:inline-flex;align-items:center;gap:0.5rem;background:linear-gradient(135deg,#25D366,#20b858);color:white;text-decoration:none;padding:1.1rem 2.5rem;border-radius:50px;font-weight:700;font-size:1.05rem;transition:transform 0.3s,box-shadow 0.3s;box-shadow:0 8px 24px rgba(37,211,102,0.25)}
+        .btn-primary-premium:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(37,211,102,0.35)}
+        .btn-row{display:flex;justify-content:center;margin:2rem 0}
+
+        /* MENU */
+        .menu-category{margin-bottom:2.5rem}
+        .menu-category h4{font-size:1rem;color:var(--red);margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem;font-weight:700;text-transform:uppercase;letter-spacing:1px}
+        .menu-item{display:flex;justify-content:space-between;align-items:center;padding:1rem 0;border-bottom:1px solid #f0ece4}
+        .menu-item:last-child{border-bottom:none}
+        .menu-item .item-info{display:flex;align-items:center;gap:0.7rem}
+        .menu-item .item-name{font-weight:500;font-size:0.95rem}
+        .menu-item .item-price{font-weight:700;color:var(--red);font-size:1rem;white-space:nowrap}
+        .tag-premium{display:inline-flex;align-items:center;gap:0.2rem;background:#FFE0E0;color:#C0392B;font-size:0.65rem;padding:0.2rem 0.6rem;border-radius:4px;font-weight:700;text-transform:uppercase;letter-spacing:1px}
+
+        /* GALLERY PREMIUM */
+        .gallery-premium{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,180px);gap:0.8rem;margin:1.5rem 0}
+        .gallery-item-premium{border-radius:16px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;font-size:3rem;transition:transform 0.3s}
+        .gallery-item-premium:hover{transform:scale(1.03)}
+        .gallery-item-premium:nth-child(1){background:linear-gradient(135deg,#E74C3C,#C0392B);grid-row:span 2}
+        .gallery-item-premium:nth-child(2){background:linear-gradient(135deg,#F39C12,#E67E22)}
+        .gallery-item-premium:nth-child(3){background:linear-gradient(135deg,#27AE60,#1E8449)}
+        .gallery-item-premium:nth-child(4){background:linear-gradient(135deg,#8E44AD,#6C3483);grid-column:span 2}
+        .gallery-item-premium:nth-child(5){background:linear-gradient(135deg,#2980B9,#1A5276);grid-column:span 2}
+
+        /* HOURS */
+        .hours-premium{background:white;border-radius:16px;padding:2rem;box-shadow:0 4px 24px rgba(0,0,0,0.04)}
+        .hours-row{display:flex;justify-content:space-between;padding:0.8rem 0;border-bottom:1px solid #f0ece4}
+        .hours-row:last-child{border-bottom:none}
+        .hours-row .day{font-weight:500}
+        .hours-row .time{font-weight:700;color:var(--dark)}
+
+        /* FOOTER PREMIUM */
+        .footer-premium{background:var(--dark);color:white;text-align:center;padding:2.5rem 1.5rem}
+        .footer-premium .brand{font-family:'Playfair Display',serif;font-size:1.2rem;margin-bottom:0.5rem}
+        .footer-premium .brand span{color:var(--gold)}
+
+        @media(max-width:768px){
+            .section{padding:3rem 1rem}
+            .info-cards{grid-template-columns:repeat(3,1fr);gap:0.5rem}
+            .info-card{padding:1rem 0.5rem}
+            .gallery-premium{grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(3,140px)}
+            .hero-features-row{gap:1.5rem}
+        }
     </style>
 </head>
 <body>
 
-<div class="hero">
-    <div class="stars">⭐ 4.8 (124 avis)</div>
-    <h1>🍽️ Maquis Le Wassa</h1>
-    <p>Spécialité Attiéké Poisson • Grillades</p>
-    <div class="badge">📍 Yopougon Maroc, Abidjan</div>
-</div>
+    <section class="hero-premium">
+        <div class="hero-content">
+            <div class="hero-badge-premium"><span class="dot"></span> Ouvert aujourd'hui • 8h-23h</div>
+            <div class="hero-stars">★★★★★ <span style="font-size:0.8rem;font-weight:400;letter-spacing:0;opacity:0.7">4.8 • 124 avis</span></div>
+            <h1 class="hero-title">Maquis <span class="accent">Le Wassa</span></h1>
+            <p class="hero-subtitle">Spécialité Attiéké Poisson Braisé & Grillades</p>
+            <div class="hero-features-row">
+                <div class="hero-feat"><div class="num">8+</div><div class="lbl">Ans d'exp.</div></div>
+                <div class="hero-feat"><div class="num">50+</div><div class="lbl">Plats</div></div>
+                <div class="hero-feat"><div class="num">4.8</div><div class="lbl">Note</div></div>
+            </div>
+        </div>
+        <div class="scroll-indicator"><span></span></div>
+    </section>
 
-<div class="container">
-
-    <a href="https://wa.me/2250595059892?text=Bonjour%20!%20Je%20veux%20commander%20chez%20Le%20Wassa%20🍽️" class="btn-wa" target="_blank">
-        💬 Commander sur WhatsApp
-    </a>
-
-    <div class="info-grid">
-        <div class="info-card"><div class="icon">📍</div><h3>Quartier</h3><p>Yopougon Maroc</p></div>
-        <div class="info-card"><div class="icon">🕐</div><h3>Horaires</h3><p>8h - 23h</p></div>
-        <div class="info-card"><div class="icon">📞</div><h3>Contact</h3><p>05 95 05 98 92</p></div>
+    <div style="text-align:center;margin-top:-60px;position:relative;z-index:3">
+        <a href="https://wa.me/2250595059892?text=Bonjour%20Le%20Wassa!%20Je%20veux%20commander%20🍽️" class="btn-primary-premium" target="_blank">💬 Commander sur WhatsApp</a>
     </div>
 
     <div class="section">
-        <h2>🍖 MENU DU JOUR</h2>
-        <div class="menu-item">
-            <span class="name"><span class="tag">TOP</span> Attiéké Poisson Braisé</span>
-            <span class="price">2 500 F</span>
-        </div>
-        <div class="menu-item">
-            <span class="name">Attiéké Poulet Grillé</span>
-            <span class="price">2 000 F</span>
-        </div>
-        <div class="menu-item">
-            <span class="name"><span class="tag">NEW</span> Riz Sauce Graine + Viande</span>
-            <span class="price">3 000 F</span>
-        </div>
-        <div class="menu-item">
-            <span class="name">Foutou Banane + Sauce Claire</span>
-            <span class="price">2 500 F</span>
-        </div>
-        <div class="menu-item">
-            <span class="name">Poisson Braisé Entier</span>
-            <span class="price">4 000 F</span>
-        </div>
-        <div class="menu-item">
-            <span class="name">Poulet Braisé (Cuisse)</span>
-            <span class="price">3 500 F</span>
-        </div>
-        <div class="menu-item">
-            <span class="name">Brochettes Bœuf (x5)</span>
-            <span class="price">1 500 F</span>
-        </div>
-        <div class="menu-item">
-            <span class="name">Alloco + Poisson</span>
-            <span class="price">2 000 F</span>
+        <div class="section-inner">
+            <div class="info-cards">
+                <div class="info-card">
+                    <div class="icon-wrap loc">📍</div>
+                    <h3>Quartier</h3>
+                    <p>Yopougon Maroc</p>
+                </div>
+                <div class="info-card">
+                    <div class="icon-wrap time">🕐</div>
+                    <h3>Horaires</h3>
+                    <p>8h00 - 23h00</p>
+                </div>
+                <div class="info-card">
+                    <div class="icon-wrap tel">📞</div>
+                    <h3>Contact</h3>
+                    <p>05 95 05 98 92</p>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="section">
-        <h2>🥤 BOISSONS</h2>
-        <div class="menu-item"><span class="name">Jus de Bissap Maison</span><span class="price">500 F</span></div>
-        <div class="menu-item"><span class="name">Jus de Gingembre</span><span class="price">500 F</span></div>
-        <div class="menu-item"><span class="name">Eau Minérale</span><span class="price">300 F</span></div>
-        <div class="menu-item"><span class="name">Coca / Fanta / Sprite</span><span class="price">500 F</span></div>
-    </div>
+    <div class="section" style="background:white;padding-top:2rem">
+        <div class="section-inner">
+            <span class="section-label">Notre carte</span>
+            <h2 class="section-title">Les incontournables</h2>
+            
+            <div class="menu-category">
+                <h4>🔥 Plats principaux</h4>
+                <div class="menu-item">
+                    <div class="item-info"><span class="item-name">Attiéké Poisson Braisé</span></div>
+                    <span class="item-price">2 500 F</span>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info"><span class="item-name">Attiéké Poulet Grillé</span> <span class="tag-premium">TOP</span></div>
+                    <span class="item-price">2 000 F</span>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info"><span class="item-name">Riz Sauce Graine + Viande</span> <span class="tag-premium">NEW</span></div>
+                    <span class="item-price">3 000 F</span>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info"><span class="item-name">Foutou Banane Sauce Claire</span></div>
+                    <span class="item-price">2 500 F</span>
+                </div>
+            </div>
 
-    <div class="section">
-        <h2>📸 GALERIE</h2>
-        <div class="gallery">
-            <div class="gallery-item">🍽️</div>
-            <div class="gallery-item">🐟</div>
-            <div class="gallery-item">🍖</div>
-            <div class="gallery-item">🥗</div>
-            <div class="gallery-item">🍗</div>
-            <div class="gallery-item">🥤</div>
+            <div class="menu-category">
+                <h4>🍖 Grillades</h4>
+                <div class="menu-item">
+                    <div class="item-info"><span class="item-name">Poisson Braisé Entier</span> <span class="tag-premium">STAR</span></div>
+                    <span class="item-price">4 000 F</span>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info"><span class="item-name">Poulet Braisé (Cuisse)</span></div>
+                    <span class="item-price">3 500 F</span>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info"><span class="item-name">Brochettes Bœuf (x5)</span></div>
+                    <span class="item-price">1 500 F</span>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info"><span class="item-name">Alloco + Poisson</span></div>
+                    <span class="item-price">2 000 F</span>
+                </div>
+            </div>
+
+            <div class="menu-category">
+                <h4>🥤 Boissons</h4>
+                <div class="menu-item"><div class="item-info"><span class="item-name">Jus de Bissap Maison</span></div><span class="item-price">500 F</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">Jus de Gingembre</span></div><span class="item-price">500 F</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">Eau Minérale</span></div><span class="item-price">300 F</span></div>
+                <div class="menu-item"><div class="item-info"><span class="item-name">Coca / Fanta / Sprite</span></div><span class="item-price">500 F</span></div>
+            </div>
         </div>
     </div>
 
-    <div class="section">
-        <h2>🕐 HORAIRES</h2>
-        <table class="hours-table">
-            <tr><td>Lundi - Vendredi</td><td>8h00 - 23h00</td></tr>
-            <tr><td>Samedi</td><td>9h00 - 00h00</td></tr>
-            <tr><td>Dimanche</td><td>10h00 - 22h00</td></tr>
-        </table>
+    <div class="section" style="background:var(--cream)">
+        <div class="section-inner">
+            <span class="section-label">Galerie</span>
+            <h2 class="section-title">Nos plats en images</h2>
+            <div class="gallery-premium">
+                <div class="gallery-item-premium">🍽️</div>
+                <div class="gallery-item-premium">🐟</div>
+                <div class="gallery-item-premium">🍖</div>
+                <div class="gallery-item-premium">🥗</div>
+                <div class="gallery-item-premium">🍗</div>
+            </div>
+        </div>
     </div>
 
-    <a href="https://wa.me/2250595059892?text=Bonjour%20!%20Je%20veux%20commander%20🍽️" class="btn-wa" target="_blank">
-        💬 Commander sur WhatsApp
-    </a>
+    <div class="section" style="background:white">
+        <div class="section-inner">
+            <span class="section-label">Infos pratiques</span>
+            <h2 class="section-title">Horaires d'ouverture</h2>
+            <div class="hours-premium">
+                <div class="hours-row"><span class="day">Lundi - Vendredi</span><span class="time">8h00 - 23h00</span></div>
+                <div class="hours-row"><span class="day">Samedi</span><span class="time">9h00 - 00h00</span></div>
+                <div class="hours-row"><span class="day">Dimanche</span><span class="time">10h00 - 22h00</span></div>
+            </div>
+        </div>
+    </div>
 
-</div>
+    <div class="btn-row" style="padding-bottom:3rem;background:white;margin-top:-2rem">
+        <a href="https://wa.me/2250595059892?text=Bonjour%20Le%20Wassa!%20Je%20veux%20commander%20🍽️" class="btn-primary-premium" target="_blank">💬 Commander sur WhatsApp</a>
+    </div>
 
-<div class="footer">
-    <p>© 2026 Maquis Le Wassa - Yopougon Maroc, Abidjan 🇨🇮</p>
-    <p style="margin-top:0.5rem">Page propulsée par <strong style="color:#F5A623">PublishPro CI</strong> 🚀</p>
-</div>
+    <footer class="footer-premium">
+        <p class="brand">Maquis <span>Le Wassa</span></p>
+        <p style="opacity:0.6;font-size:0.85rem">Yopougon Maroc, Abidjan 🇨🇮</p>
+        <p style="opacity:0.4;font-size:0.75rem;margin-top:0.5rem">Page propulsée par <strong>PublishPro CI</strong> 🚀</p>
+    </footer>
 
 </body>
 </html>

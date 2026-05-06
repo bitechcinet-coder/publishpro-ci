@@ -76,7 +76,7 @@
                 </p>
                 <div class="hero-actions">
                     <a href="#demos" class="btn btn-primary btn-lg">👀 Voir les démos live</a>
-                    <a href="https://wa.me/2250595059892?text=Salut%20PublishPro!%20Je%20veux%20ma%20page%20web%20🚀" class="btn btn-secondary btn-lg" target="_blank">💬 Commander sur WhatsApp</a>
+                    <a href="#how" class="btn btn-secondary btn-lg">✨ Créer mon aperçu gratuit</a>
                 </div>
                 <div class="hero-stats">
                     <div class="stat-item"><div class="stat-number">50+</div><div class="stat-label">Pages créées</div></div>
@@ -125,6 +125,7 @@
                         <iframe src="demo/maquis-le-wassa-yopougon.html" title="Démo Maquis Le Wassa" loading="lazy"></iframe>
                     </div>
                     <div style="text-align:center;margin-top:0.5rem;font-weight:600;font-size:0.9rem">🍽️ Restaurant / Maquis</div>
+                    <div style="text-align:center;margin-top:0.3rem"><a href="demo/maquis-le-wassa-yopougon.html" target="_blank" style="color:var(--color-primary);font-size:0.8rem;font-weight:600;text-decoration:underline">🔍 Voir en plein écran →</a></div>
                 </div>
                 <div>
                     <div class="demo-phone">
@@ -132,6 +133,7 @@
                         <iframe src="demo/boutique-akwaba-mode-treichville.html" title="Démo Boutique Akwaba" loading="lazy"></iframe>
                     </div>
                     <div style="text-align:center;margin-top:0.5rem;font-weight:600;font-size:0.9rem">👗 Boutique / Mode</div>
+                    <div style="text-align:center;margin-top:0.3rem"><a href="demo/boutique-akwaba-mode-treichville.html" target="_blank" style="color:var(--color-primary);font-size:0.8rem;font-weight:600;text-decoration:underline">🔍 Voir en plein écran →</a></div>
                 </div>
                 <div>
                     <div class="demo-phone">
@@ -139,6 +141,7 @@
                         <iframe src="demo/salon-beaute-fatou-cocody.html" title="Démo Salon Fatou" loading="lazy"></iframe>
                     </div>
                     <div style="text-align:center;margin-top:0.5rem;font-weight:600;font-size:0.9rem">💇‍♀️ Salon / Service</div>
+                    <div style="text-align:center;margin-top:0.3rem"><a href="demo/salon-beaute-fatou-cocody.html" target="_blank" style="color:var(--color-primary);font-size:0.8rem;font-weight:600;text-decoration:underline">🔍 Voir en plein écran →</a></div>
                 </div>
             </div>
         </div>
@@ -154,8 +157,8 @@
             <div class="flow-steps">
                 <div class="flow-step">
                     <div class="step-number">1</div>
-                    <h4>Vous commandez</h4>
-                    <p>Cliquez sur WhatsApp, dites-nous votre commerce, quartier, ce que vous vendez.</p>
+                    <h4>Remplissez le formulaire</h4>
+                    <p>Entrez votre nom, quartier et type de commerce. 30 secondes chrono.</p>
                 </div>
                 <div class="flow-step">
                     <div class="step-number">2</div>
@@ -176,6 +179,36 @@
 
             <div class="guarantee-strip">
                 🛡️ Double protection — Vous voyez l'aperçu avant de payer. On ne travaille qu'après votre validation. Zéro risque des deux côtés.
+            </div>
+
+            <!-- FORMULAIRE EN LIGNE -->
+            <div style="background:white;border-radius:20px;padding:2.5rem 2rem;box-shadow:0 8px 40px rgba(0,0,0,0.08);margin-top:2rem;max-width:600px;margin-left:auto;margin-right:auto;border:2px solid #F5A623">
+                <h3 style="text-align:center;font-size:1.3rem;margin-bottom:0.5rem">🎯 Essayez maintenant — c'est gratuit</h3>
+                <p style="text-align:center;color:#777;margin-bottom:1.5rem;font-size:0.9rem">Remplissez vos infos et voyez votre aperçu en 10 secondes</p>
+                <form id="previewForm" onsubmit="goToPreview(event)" style="display:grid;gap:1rem">
+                    <input type="text" id="bizName" placeholder="Nom de votre commerce *" required style="padding:0.9rem 1rem;border:1px solid #ddd;border-radius:10px;font-size:1rem;font-family:Inter,sans-serif">
+                    <input type="text" id="bizQuartier" placeholder="Quartier (ex: Cocody, Yopougon...) *" required style="padding:0.9rem 1rem;border:1px solid #ddd;border-radius:10px;font-size:1rem;font-family:Inter,sans-serif">
+                    <select id="bizType" required style="padding:0.9rem 1rem;border:1px solid #ddd;border-radius:10px;font-size:1rem;font-family:Inter,sans-serif;background:white">
+                        <option value="">Type de commerce *</option>
+                        <option value="restaurant">🍽️ Restaurant / Maquis</option>
+                        <option value="boutique">👗 Boutique / Mode</option>
+                        <option value="service">💇 Salon / Service</option>
+                    </select>
+                    <input type="tel" id="bizPhone" placeholder="Votre numéro WhatsApp *" required style="padding:0.9rem 1rem;border:1px solid #ddd;border-radius:10px;font-size:1rem;font-family:Inter,sans-serif">
+                    <button type="submit" style="background:linear-gradient(135deg,#F5A623,#D4891A);color:white;border:none;padding:1rem;border-radius:12px;font-size:1.1rem;font-weight:700;cursor:pointer;transition:0.2s">✨ Voir mon aperçu gratuit →</button>
+                </form>
+                <script>
+                function goToPreview(e){
+                    e.preventDefault();
+                    const n=document.getElementById('bizName').value.trim();
+                    const q=document.getElementById('bizQuartier').value.trim();
+                    const t=document.getElementById('bizType').value;
+                    const p=document.getElementById('bizPhone').value.trim();
+                    if(!n||!q||!t||!p){alert('Remplissez tous les champs SVP');return;}
+                    const params=new URLSearchParams({name:n,quartier:q,type:t,phone:p});
+                    window.location.href='preview.html?'+params.toString();
+                }
+                </script>
             </div>
         </div>
     </section>
@@ -385,12 +418,37 @@
         <div class="container">
             <h2>Prêt à avoir votre page web ? 🚀</h2>
             <p>
-                Choisissez votre formule, cliquez sur WhatsApp, et recevez votre page en 24h.<br>
-                <strong>Vous ne payez qu'après avoir vu et validé l'aperçu.</strong>
+                Remplissez vos infos ci-dessous et voyez votre aperçu <strong>instantanément</strong>.<br>
+                Vous ne payez qu'après avoir validé.
             </p>
-            <a href="https://wa.me/2250595059892?text=Salut%20PublishPro!%20👉%20Je%20veux%20un%20aperçu%20gratuit%20pour%20mon%20commerce.%0A%0A📛%20Nom%20:%20[à%20remplir]%0A📍%20Quartier%20:%20[à%20remplir]%0A🏷️%20Type%20:%20[restaurant/boutique/salon]%0A📞%20Mon%20numéro%20:%20[à%20remplir]%0A%0AJe%20validerai%20l'aperçu%20avant%20de%20payer." class="btn btn-lg" target="_blank" rel="noopener">
-                💬 Demander mon aperçu gratuit sur WhatsApp
-            </a>
+            
+            <div style="background:white;border-radius:16px;padding:2rem;max-width:500px;margin:1.5rem auto 0;box-shadow:0 8px 30px rgba(0,0,0,0.1)">
+                <form id="previewForm2" onsubmit="goToPreview2(event)" style="display:grid;gap:0.8rem">
+                    <input type="text" id="bizName2" placeholder="Nom de votre commerce *" required style="padding:0.8rem 1rem;border:1px solid #ddd;border-radius:10px;font-size:1rem;font-family:Inter,sans-serif;color:#333">
+                    <input type="text" id="bizQuartier2" placeholder="Quartier (Cocody, Yopougon...) *" required style="padding:0.8rem 1rem;border:1px solid #ddd;border-radius:10px;font-size:1rem;font-family:Inter,sans-serif;color:#333">
+                    <select id="bizType2" required style="padding:0.8rem 1rem;border:1px solid #ddd;border-radius:10px;font-size:1rem;font-family:Inter,sans-serif;background:white;color:#333">
+                        <option value="">Type de commerce *</option>
+                        <option value="restaurant">🍽️ Restaurant / Maquis</option>
+                        <option value="boutique">👗 Boutique / Mode</option>
+                        <option value="service">💇 Salon / Service</option>
+                    </select>
+                    <input type="tel" id="bizPhone2" placeholder="Votre WhatsApp *" required style="padding:0.8rem 1rem;border:1px solid #ddd;border-radius:10px;font-size:1rem;font-family:Inter,sans-serif;color:#333">
+                    <button type="submit" style="background:white;color:#F5A623;border:2px solid #F5A623;padding:0.9rem;border-radius:12px;font-size:1.1rem;font-weight:700;cursor:pointer;transition:0.2s">✨ Voir mon aperçu gratuit →</button>
+                </form>
+            </div>
+            <script>
+            function goToPreview2(e){
+                e.preventDefault();
+                const n=document.getElementById('bizName2').value.trim();
+                const q=document.getElementById('bizQuartier2').value.trim();
+                const t=document.getElementById('bizType2').value;
+                const p=document.getElementById('bizPhone2').value.trim();
+                if(!n||!q||!t||!p){alert('Remplissez tous les champs SVP');return;}
+                const params=new URLSearchParams({name:n,quartier:q,type:t,phone:p});
+                window.location.href='preview.html?'+params.toString();
+            }
+            </script>
+            
             <div class="cta-contact">
                 <div class="cta-contact-item">📞 +225 05 95 05 98 92</div>
                 <div class="cta-contact-item">✉️ contact@publishpro.ci</div>

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔍 Aperçu de votre page | PublishPro CI</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f5f5f5}
+
+        /* BARRE DU HAUT */
+        .topbar{background:#1A1A2E;color:white;text-align:center;padding:0.6rem 1rem;font-size:0.8rem;position:sticky;top:0;z-index:999}
+        .topbar .watermark-text{opacity:0.7;letter-spacing:1px}
+        .topbar strong{color:#F5A623}
+
+        /* PREVIEW PHONE */
+        .preview-wrapper{max-width:420px;margin:1.5rem auto;background:white;border-radius:20px;box-shadow:0 10px 40px rgba(0,0,0,0.15);overflow:hidden;border:3px solid #333}
+        .preview-header{background:#222;color:white;text-align:center;padding:0.3rem 1rem;font-size:0.7rem}
+
+        /* Le template dynamique (styles inline dans le JS) */
+        .template-content{min-height:500px}
+
+        /* PANNEAU D'ACTION */
+        .action-panel{max-width:420px;margin:0 auto 2rem;padding:1.5rem;background:white;border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.08);text-align:center}
+        .action-panel h2{font-size:1.3rem;margin-bottom:0.3rem}
+        .action-panel .sub{color:#666;font-size:0.9rem;margin-bottom:1.2rem}
+        .action-panel .price-big{font-size:2.2rem;font-weight:900;color:#1A1A2E;margin-bottom:0.2rem}
+        .action-panel .price-big span{font-size:1rem;color:#999}
+        .btn-pay{display:block;width:100%;background:#F5A623;color:white;border:none;padding:1rem;border-radius:12px;font-size:1.1rem;font-weight:700;cursor:pointer;margin-bottom:1rem;transition:0.2s}
+        .btn-pay:hover{background:#D4891A;transform:translateY(-1px)}
+        .btn-back{display:block;width:100%;background:transparent;color:#999;border:1px solid #ddd;padding:0.7rem;border-radius:12px;font-size:0.9rem;cursor:pointer;text-decoration:none;text-align:center}
+
+        .payment-details{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:1rem;margin:1rem 0;text-align:left;display:none}
+        .payment-details h4{color:#166534;margin-bottom:0.5rem}
+        .payment-method{display:flex;align-items:center;justify-content:space-between;padding:0.5rem 0;border-bottom:1px solid #dcfce7}
+        .payment-method:last-child{border-bottom:none}
+        .payment-method .name{font-weight:600;font-size:0.85rem}
+        .payment-method .number{font-size:0.85rem;color:#166534;font-weight:700}
+
+        .whatsapp-confirm{display:flex;align-items:center;gap:0.5rem;background:#25D366;color:white;text-decoration:none;padding:0.8rem 1rem;border-radius:50px;font-weight:600;font-size:0.9rem;justify-content:center;margin-top:1rem}
+        .whatsapp-confirm:hover{background:#20b858}
+
+        .formula-selector{display:flex;gap:0.5rem;margin-bottom:1rem}
+        .formula-btn{flex:1;padding:0.6rem 0.5rem;border:2px solid #ddd;border-radius:10px;background:white;cursor:pointer;text-align:center;font-size:0.75rem;transition:0.2s}
+        .formula-btn.active{border-color:#F5A623;background:#FFF7ED}
+        .formula-btn .fname{font-weight:700;font-size:0.85rem;display:block}
+        .formula-btn .fprice{color:#F5A623;font-weight:700;font-size:0.9rem;display:block}
+
+        .watermark-overlay{position:absolute;top:0;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:10}
+        .watermark-overlay span{font-size:2rem;font-weight:900;color:rgba(255,0,0,0.15);transform:rotate(-20deg);white-space:nowrap}
+
+        @media(min-width:768px){.preview-wrapper{margin:2rem auto}}
+    </style>
+</head>
+<body>
+
+<div class="topbar">
+    <span class="watermark-text">🔍 APERÇU GRATUIT — Version complète après paiement —</span> <strong>PublishPro CI</strong>
+</div>
+
+<div class="preview-wrapper" id="previewWrapper">
+    <div class="preview-header">📱 Aperçu mobile</div>
+    <div style="position:relative">
+        <div class="watermark-overlay"><span>APERÇU</span></div>
+        <div class="template-content" id="templateContent"></div>
+    </div>
+</div>
+
+<div class="action-panel" id="actionPanel">
+    <h2>Ça vous plaît ? ✅</h2>
+    <p class="sub">Validez et payez pour recevoir votre page complète</p>
+
+    <div class="formula-selector" id="formulaSelector">
+        <button class="formula-btn" data-plan="essentiel" data-price="10000"><span class="fname">Essentiel</span><span class="fprice">10 000 F</span></button>
+        <button class="formula-btn active" data-plan="pro" data-price="25000"><span class="fname">Pro ⭐</span><span class="fprice">25 000 F</span></button>
+        <button class="formula-btn" data-plan="premium" data-price="35000"><span class="fname">Premium</span><span class="fprice">35 000 F</span></button>
+    </div>
+
+    <div class="price-big" id="displayPrice">25 000 <span>FCFA</span></div>
+
+    <button class="btn-pay" id="btnPay" onclick="showPayment()">💳 Valider et payer</button>
+
+    <div class="payment-details" id="paymentDetails">
+        <h4>📱 Payez par Mobile Money :</h4>
+        <div class="payment-method">
+            <span class="name">🌊 Wave</span>
+            <span class="number">+225 05 95 05 98 92</span>
+        </div>
+        <div class="payment-method">
+            <span class="name">🍊 Orange Money</span>
+            <span class="number">+225 05 95 05 98 92</span>
+        </div>
+        <div class="payment-method">
+            <span class="name">📱 MTN MoMo</span>
+            <span class="number">+225 05 95 05 98 92</span>
+        </div>
+        <p style="font-size:0.75rem;color:#166534;margin-top:0.5rem;text-align:center">
+            💡 Montant à payer : <strong id="paymentAmount">25 000 FCFA</strong>
+        </p>
+        <a class="whatsapp-confirm" id="whatsappLink" href="#" target="_blank">
+            📩 Envoyer la confirmation de paiement sur WhatsApp
+        </a>
+        <p style="font-size:0.7rem;color:#999;text-align:center;margin-top:0.5rem">
+            Après réception de votre paiement, votre page complète sera livrée en 2h.
+        </p>
+    </div>
+
+    <a href="index.html" class="btn-back" style="margin-top:0.5rem">← Modifier mes infos</a>
+</div>
+
+<script>
+// ============================================================
+// PublishPro CI - Preview dynamique + Paiement
+// ============================================================
+
+// Lire les paramètres de l'URL
+const params = new URLSearchParams(window.location.search);
+const bizName = params.get('name') || 'Mon Commerce';
+const bizQuartier = params.get('quartier') || 'Abidjan';
+const bizType = params.get('type') || 'restaurant';
+const bizPhone = params.get('phone') || '05 95 05 98 92';
+
+// Config par type de commerce
+const typeConfig = {
+    restaurant: {
+        emoji: '🍽️', color1: '#C0392B', color2: '#E74C3C', label: 'Restaurant / Maquis',
+        title: '🍽️ ' + bizName,
+        subtitle: 'Spécialités locales • Commandez en ligne',
+        sections: [
+            {title: '🍖 MENU', items: [
+                {name: 'Plat signature 1', price: '2 500 F', tag: 'TOP'},
+                {name: 'Plat signature 2', price: '2 000 F'},
+                {name: 'Spécialité maison', price: '3 000 F', tag: 'NEW'},
+                {name: 'Plat populaire', price: '2 500 F'},
+                {name: 'Poisson braisé', price: '4 000 F'},
+                {name: 'Poulet grillé', price: '3 500 F'},
+            ]},
+            {title: '🥤 BOISSONS', items: [
+                {name: 'Jus de bissap maison', price: '500 F'},
+                {name: 'Jus de gingembre', price: '500 F'},
+                {name: 'Eau minérale', price: '300 F'},
+                {name: 'Coca / Fanta / Sprite', price: '500 F'},
+            ]}
+        ]
+    },
+    boutique: {
+        emoji: '👗', color1: '#6C3483', color2: '#8E44AD', label: 'Boutique / Mode',
+        title: '👗 ' + bizName,
+        subtitle: 'Vêtements • Accessoires • Pagnes',
+        sections: [
+            {title: '🛍️ PRODUITS', items: [
+                {name: 'Article phare 1', price: '15 000 F', tag: 'TOP'},
+                {name: 'Article phare 2', price: '12 000 F'},
+                {name: 'Nouveauté', price: '18 000 F', tag: 'NEW'},
+                {name: 'Basique', price: '5 000 F'},
+                {name: 'Premium', price: '25 000 F'},
+                {name: 'Accessoire', price: '3 000 F'},
+            ]}
+        ]
+    },
+    service: {
+        emoji: '💇', color1: '#1E8449', color2: '#27AE60', label: 'Salon / Service',
+        title: '💇 ' + bizName,
+        subtitle: 'Services professionnels • Prenez RDV',
+        sections: [
+            {title: '💅 SERVICES', items: [
+                {name: 'Service signature 1', price: '5 000 F', tag: 'TOP'},
+                {name: 'Service signature 2', price: '10 000 F'},
+                {name: 'Forfait découverte', price: '7 000 F', tag: 'NEW'},
+                {name: 'Service classique', price: '3 000 F'},
+                {name: 'Service premium', price: '15 000 F'},
+                {name: 'Forfait complet', price: '25 000 F'},
+            ]}
+        ]
+    }
+};
+
+const config = typeConfig[bizType] || typeConfig.restaurant;
+
+// Construire le template HTML
+const templateHTML = `
+<style>
+    .tmpl-hero{background:linear-gradient(135deg,${config.color1},${config.color2});color:white;text-align:center;padding:2.5rem 1.5rem 2rem;position:relative;overflow:hidden}
+    .tmpl-hero::after{content:'';position:absolute;bottom:-20px;left:0;right:0;height:40px;background:white;border-radius:50% 50% 0 0}
+    .tmpl-hero h1{font-size:1.6rem;margin:0.3rem 0}
+    .tmpl-hero .badge{display:inline-block;background:rgba(255,255,255,0.2);padding:0.3rem 0.8rem;border-radius:20px;font-size:0.75rem;margin-top:0.3rem}
+    .tmpl-body{padding:1.5rem}
+    .tmpl-info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.5rem;margin-bottom:1rem}
+    .tmpl-info-card{background:#f9f9f9;padding:0.8rem 0.5rem;border-radius:10px;text-align:center}
+    .tmpl-info-card .icon{font-size:1.3rem;margin-bottom:0.2rem}
+    .tmpl-info-card h3{font-size:0.65rem;color:#999;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.1rem}
+    .tmpl-info-card p{font-size:0.8rem;font-weight:600}
+    .tmpl-btn-wa{display:flex;align-items:center;justify-content:center;gap:0.3rem;background:#25D366;color:white;text-decoration:none;padding:0.7rem 1.5rem;border-radius:50px;font-weight:700;font-size:0.9rem;margin:1rem 0}
+    .tmpl-section{margin-bottom:1.5rem}
+    .tmpl-section h2{color:${config.color1};font-size:1.1rem;margin-bottom:0.7rem;padding-bottom:0.4rem;border-bottom:2px solid ${config.color2};display:flex;align-items:center;gap:0.3rem}
+    .tmpl-item{display:flex;justify-content:space-between;align-items:center;padding:0.6rem 0;border-bottom:1px solid #f0f0f0}
+    .tmpl-item .name{font-size:0.85rem;display:flex;align-items:center;gap:0.4rem}
+    .tmpl-item .price{font-weight:700;color:${config.color1};font-size:0.9rem}
+    .tmpl-tag{background:#FFF3E0;color:#E65100;font-size:0.6rem;padding:0.15rem 0.4rem;border-radius:4px;font-weight:700}
+    .tmpl-hours{width:100%;border-collapse:collapse;margin:0.5rem 0}
+    .tmpl-hours td{padding:0.5rem;border-bottom:1px solid #f0f0f0;font-size:0.8rem}
+    .tmpl-hours td:last-child{text-align:right;font-weight:600}
+    .tmpl-footer{text-align:center;padding:1rem;color:#999;font-size:0.7rem;border-top:1px solid #eee}
+</style>
+<div class="tmpl-hero">
+    <h1>${config.title}</h1>
+    <p style="font-size:0.9rem;opacity:0.9">${config.subtitle}</p>
+    <div class="badge">📍 ${bizQuartier}, Abidjan</div>
+</div>
+<div class="tmpl-body">
+    <a href="https://wa.me/${bizPhone}" class="tmpl-btn-wa" onclick="return false">💬 Commander sur WhatsApp</a>
+
+    <div class="tmpl-info-grid">
+        <div class="tmpl-info-card"><div class="icon">📍</div><h3>Quartier</h3><p>${bizQuartier}</p></div>
+        <div class="tmpl-info-card"><div class="icon">🕐</div><h3>Horaires</h3><p>[À définir]</p></div>
+        <div class="tmpl-info-card"><div class="icon">📞</div><h3>Contact</h3><p>${bizPhone}</p></div>
+    </div>
+
+    ${config.sections.map(s => `
+    <div class="tmpl-section">
+        <h2>${s.title}</h2>
+        ${s.items.map(i => `
+        <div class="tmpl-item">
+            <span class="name">${i.tag ? '<span class="tmpl-tag">'+i.tag+'</span>' : ''} ${i.name}</span>
+            <span class="price">${i.price}</span>
+        </div>`).join('')}
+    </div>`).join('')}
+
+    <div class="tmpl-section">
+        <h2>🕐 HORAIRES</h2>
+        <table class="tmpl-hours">
+            <tr><td>Lundi - Vendredi</td><td>[À définir]</td></tr>
+            <tr><td>Samedi</td><td>[À définir]</td></tr>
+            <tr><td>Dimanche</td><td>[À définir]</td></tr>
+        </table>
+    </div>
+</div>
+<div class="tmpl-footer">
+    <p>© 2026 ${bizName} - ${bizQuartier}, Abidjan 🇨🇮</p>
+    <p>Page propulsée par <strong style="color:#F5A623">PublishPro CI</strong> 🚀</p>
+</div>`;
+
+document.getElementById('templateContent').innerHTML = templateHTML;
+
+// Sélecteur de formule
+let selectedPlan = 'pro';
+let selectedPrice = 25000;
+let selectedLabel = 'Pro';
+
+document.querySelectorAll('.formula-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        document.querySelectorAll('.formula-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        selectedPlan = this.dataset.plan;
+        selectedPrice = parseInt(this.dataset.price);
+        selectedLabel = this.querySelector('.fname').textContent.replace('⭐','').trim();
+        document.getElementById('displayPrice').innerHTML = selectedPrice.toLocaleString() + ' <span>FCFA</span>';
+        document.getElementById('paymentAmount').textContent = selectedPrice.toLocaleString() + ' FCFA';
+    });
+});
+
+// Afficher les détails de paiement
+function showPayment() {
+    document.getElementById('paymentDetails').style.display = 'block';
+    document.getElementById('btnPay').style.display = 'none';
+    
+    // Construire le lien WhatsApp de confirmation
+    const waMsg = encodeURIComponent(
+        `✅ PAIEMENT EFFECTUÉ - PublishPro CI\n\n` +
+        `📛 ${bizName}\n` +
+        `📍 ${bizQuartier}\n` +
+        `🏷️ ${config.label}\n` +
+        `💎 Formule ${selectedLabel} - ${selectedPrice.toLocaleString()} FCFA\n` +
+        `📞 ${bizPhone}\n\n` +
+        `[Joindre la capture du paiement ici]`
+    );
+    document.getElementById('whatsappLink').href = `https://wa.me/2250595059892?text=${waMsg}`;
+
+    // Mettre à jour l'URL pour tracker la conversion
+    document.title = `✅ ${bizName} - ${selectedLabel} - PublishPro CI`;
+}
+</script>
+</body>
+</html>
