@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="[Nom du Restaurant] - Découvrez notre menu et nos plats. Commandez en ligne à Abidjan.">
+    <title>[Nom du Restaurant] | [Quartier] - Abidjan</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #fafafa;
+            color: #333;
+            line-height: 1.6;
+        }
+        .header {
+            background: linear-gradient(135deg, #E74C3C, #C0392B);
+            color: white;
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+        .header h1 { font-size: 2.2rem; margin-bottom: 0.5rem; }
+        .header p { opacity: 0.9; font-size: 1.1rem; }
+        .header .emoji-big { font-size: 3rem; margin-bottom: 1rem; }
+        .container { max-width: 800px; margin: 0 auto; padding: 2rem 1.5rem; }
+        .section-title {
+            font-size: 1.5rem;
+            color: #E74C3C;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #E74C3C;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .info-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        .info-card .icon { font-size: 2rem; margin-bottom: 0.5rem; }
+        .info-card h3 { font-size: 1rem; margin-bottom: 0.3rem; }
+        .info-card p { font-size: 0.9rem; color: #666; }
+        .menu-category { margin-bottom: 2rem; }
+        .menu-category h3 {
+            font-size: 1.2rem;
+            color: #C0392B;
+            margin-bottom: 1rem;
+        }
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        .menu-item .name { font-weight: 600; }
+        .menu-item .price { color: #E74C3C; font-weight: 700; }
+        .contact-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: transform 0.2s;
+        }
+        .btn:hover { transform: translateY(-2px); }
+        .btn-whatsapp { background: #25D366; color: white; }
+        .btn-call { background: #333; color: white; }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.5rem;
+            margin: 1.5rem 0;
+        }
+        .gallery-placeholder {
+            aspect-ratio: 1;
+            background: #ddd;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #999;
+        }
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: #999;
+            font-size: 0.85rem;
+        }
+        .hours-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        .hours-table td {
+            padding: 0.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        .hours-table td:last-child { text-align: right; }
+        .hours-table .closed { color: #E74C3C; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="emoji-big">🍽️</div>
+        <h1>[Nom du Restaurant]</h1>
+        <p>📍 [Adresse] - [Quartier], Abidjan</p>
+        <p style="margin-top:0.5rem;font-size:0.9rem;opacity:0.8">🕐 [Horaires d'ouverture]</p>
+    </div>
+
+    <div class="container">
+
+        <div class="info-grid">
+            <div class="info-card">
+                <div class="icon">📍</div>
+                <h3>Adresse</h3>
+                <p>[Adresse complète]</p>
+            </div>
+            <div class="info-card">
+                <div class="icon">🕐</div>
+                <h3>Horaires</h3>
+                <p>[Lun-Dim : 8h-22h]</p>
+            </div>
+            <div class="info-card">
+                <div class="icon">📞</div>
+                <h3>Téléphone</h3>
+                <p>[+225 XX XX XX XX]</p>
+            </div>
+        </div>
+
+        <div class="contact-buttons">
+            <a href="https://wa.me/225XXXXXXXXX?text=Bonjour%20!%20Je%20souhaite%20commander" class="btn btn-whatsapp" target="_blank">💬 Commander sur WhatsApp</a>
+            <a href="tel:+225XXXXXXXXX" class="btn btn-call">📞 Appeler</a>
+        </div>
+
+        <h2 class="section-title">🍔 Notre Menu</h2>
+
+        <div class="menu-category">
+            <h3>Plats Principaux</h3>
+            <div class="menu-item">
+                <span class="name">[Plat 1 - Ex: Attiéké Poisson]</span>
+                <span class="price">[2 500 F]</span>
+            </div>
+            <div class="menu-item">
+                <span class="name">[Plat 2 - Ex: Riz Sauce Graine]</span>
+                <span class="price">[3 000 F]</span>
+            </div>
+            <div class="menu-item">
+                <span class="name">[Plat 3 - Ex: Foutou Sauce]</span>
+                <span class="price">[2 500 F]</span>
+            </div>
+            <div class="menu-item">
+                <span class="name">[Plat 4 - Ex: Poisson Braisé]</span>
+                <span class="price">[4 000 F]</span>
+            </div>
+        </div>
+
+        <div class="menu-category">
+            <h3>Grillades</h3>
+            <div class="menu-item">
+                <span class="name">[Grillade 1 - Ex: Poulet Braisé]</span>
+                <span class="price">[3 500 F]</span>
+            </div>
+            <div class="menu-item">
+                <span class="name">[Grillade 2 - Ex: Brochettes]</span>
+                <span class="price">[1 000 F]</span>
+            </div>
+        </div>
+
+        <div class="menu-category">
+            <h3>Boissons</h3>
+            <div class="menu-item">
+                <span class="name">[Boisson 1 - Ex: Jus de Bissap]</span>
+                <span class="price">[500 F]</span>
+            </div>
+            <div class="menu-item">
+                <span class="name">[Boisson 2 - Ex: Jus de Gingembre]</span>
+                <span class="price">[500 F]</span>
+            </div>
+            <div class="menu-item">
+                <span class="name">[Soda / Eau minérale]</span>
+                <span class="price">[500 F]</span>
+            </div>
+        </div>
+
+        <h2 class="section-title">🕐 Horaires d'ouverture</h2>
+        <table class="hours-table">
+            <tr><td>Lundi - Vendredi</td><td>[8h00 - 22h00]</td></tr>
+            <tr><td>Samedi</td><td>[9h00 - 23h00]</td></tr>
+            <tr><td>Dimanche</td><td>[10h00 - 21h00]</td></tr>
+            <tr><td>Jours fériés</td><td>[Fermé / Horaires spéciales]</td></tr>
+        </table>
+
+        <h2 class="section-title">📸 Galerie</h2>
+        <div class="gallery">
+            <div class="gallery-placeholder">🍽️</div>
+            <div class="gallery-placeholder">🍖</div>
+            <div class="gallery-placeholder">🥗</div>
+        </div>
+        <p style="text-align:center;color:#999;font-size:0.85rem;margin-top:0.5rem">Photos de nos plats</p>
+
+        <div class="contact-buttons" style="margin-top:2.5rem">
+            <a href="https://wa.me/225XXXXXXXXX?text=Bonjour%20!%20Je%20souhaite%20commander" class="btn btn-whatsapp">💬 Commander maintenant</a>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <p>© 2026 [Nom du Restaurant] - [Quartier], Abidjan, Côte d'Ivoire</p>
+        <p style="margin-top:0.5rem">Page propulsée par <strong>PublishPro CI</strong> 🚀</p>
+    </div>
+
+</body>
+</html>
