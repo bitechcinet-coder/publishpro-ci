@@ -100,6 +100,11 @@
         <a class="whatsapp-confirm" id="whatsappLink" href="#" target="_blank">
             📩 Envoyer la confirmation de paiement sur WhatsApp
         </a>
+        <div style="margin-top:0.8rem">
+            <a id="receiptLink" href="#" style="display:inline-flex;align-items:center;gap:0.3rem;background:white;color:#27AE60;border:2px solid #27AE60;text-decoration:none;padding:0.7rem 1.5rem;border-radius:50px;font-weight:700;font-size:0.85rem;transition:0.2s">
+                ✅ J'ai payé — Voir mon reçu
+            </a>
+        </div>
         <p style="font-size:0.7rem;color:#999;text-align:center;margin-top:0.5rem">
             Après réception de votre paiement, votre page complète sera livrée en 2h.
         </p>
@@ -275,6 +280,10 @@ function showPayment() {
         `[Joindre la capture du paiement ici]`
     );
     document.getElementById('whatsappLink').href = `https://wa.me/2250595059892?text=${waMsg}`;
+
+    // Lien vers le reçu
+    const receiptParams = new URLSearchParams({plan: selectedLabel, price: selectedPrice.toString()});
+    document.getElementById('receiptLink').href = 'receipt.html?' + receiptParams.toString();
 
     // Mettre à jour l'URL pour tracker la conversion
     document.title = `✅ ${bizName} - ${selectedLabel} - PublishPro CI`;

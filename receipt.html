@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✅ Paiement confirmé | PublishPro CI</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f5fdf7;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:2rem}
+        .receipt{background:white;border-radius:20px;padding:3rem 2rem;max-width:500px;width:100%;box-shadow:0 8px 40px rgba(0,0,0,0.08);text-align:center}
+        .check-icon{width:80px;height:80px;background:#27AE60;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;font-size:2.5rem;color:white;animation:pop 0.5s cubic-bezier(0.175,0.885,0.32,1.275)}
+        @keyframes pop{from{transform:scale(0)}to{transform:scale(1)}}
+        h1{font-size:1.8rem;color:#1A1A2E;margin-bottom:0.5rem}
+        .sub{color:#777;margin-bottom:2rem}
+        .info-box{background:#f9f9f9;border-radius:12px;padding:1.5rem;text-align:left;margin-bottom:1.5rem}
+        .info-row{display:flex;justify-content:space-between;padding:0.5rem 0;border-bottom:1px solid #eee}
+        .info-row:last-child{border-bottom:none}
+        .info-row .label{color:#999;font-size:0.85rem}
+        .info-row .value{font-weight:600;color:#333}
+        .total-row{display:flex;justify-content:space-between;padding:0.8rem 0;font-size:1.2rem;font-weight:800;color:#1A1A2E}
+        .whatsapp-btn{display:flex;align-items:center;justify-content:center;gap:0.5rem;background:#25D366;color:white;text-decoration:none;padding:1rem 2rem;border-radius:50px;font-weight:700;font-size:1rem;margin:1rem 0;transition:0.2s}
+        .whatsapp-btn:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(37,211,102,0.3)}
+        .timeline{display:flex;align-items:center;justify-content:center;gap:1rem;margin:1.5rem 0}
+        .timeline-dot{width:12px;height:12px;border-radius:50%;background:#ddd}
+        .timeline-dot.done{background:#27AE60}
+        .timeline-dot.active{background:#F5A623;animation:pulse-dot 1.5s infinite}
+        @keyframes pulse-dot{0%,100%{box-shadow:0 0 0 0 rgba(245,166,35,0.4)}50%{box-shadow:0 0 0 12px rgba(245,166,35,0)}}
+        .timeline-line{width:60px;height:2px;background:#ddd}
+        .timeline-line.done{background:#27AE60}
+        .back-link{color:#999;font-size:0.9rem;margin-top:1rem;display:inline-block}
+    </style>
+</head>
+<body>
+<div class="receipt">
+    <div class="check-icon">✓</div>
+    <h1>Paiement confirmé !</h1>
+    <p class="sub">Votre commande a bien été reçue. Voici votre reçu.</p>
+
+    <div class="timeline">
+        <div class="timeline-dot done"></div>
+        <div class="timeline-line done"></div>
+        <div class="timeline-dot active"></div>
+        <div class="timeline-line"></div>
+        <div class="timeline-dot"></div>
+    </div>
+    <div style="display:flex;justify-content:space-between;font-size:0.7rem;color:#999;margin-top:-0.5rem;margin-bottom:1.5rem">
+        <span>Paiement reçu</span><span>En création</span><span>Livré</span>
+    </div>
+
+    <div class="info-box">
+        <div class="info-row"><span class="label">Commande</span><span class="value">#PPCI-2026-001</span></div>
+        <div class="info-row"><span class="label">Date</span><span class="value" id="receiptDate"></span></div>
+        <div class="info-row"><span class="label">Formule</span><span class="value" id="receiptPlan">Pro</span></div>
+        <div class="total-row"><span>Total payé</span><span id="receiptAmount">25 000 FCFA</span></div>
+    </div>
+
+    <p style="color:#777;font-size:0.85rem;margin-bottom:1rem">Votre page sera livrée sous <strong>2 heures</strong></p>
+
+    <a href="https://wa.me/2250595059892?text=Bonjour!%20Voici%20ma%20confirmation%20de%20paiement%20✅" class="whatsapp-btn" target="_blank">💬 Suivre ma commande sur WhatsApp</a>
+
+    <a href="index.html" class="back-link">← Retour à l'accueil</a>
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const plan = params.get('plan') || 'Pro';
+const price = params.get('price') || '25000';
+const priceFormatted = parseInt(price).toLocaleString();
+document.getElementById('receiptPlan').textContent = plan;
+document.getElementById('receiptAmount').textContent = priceFormatted + ' FCFA';
+document.getElementById('receiptDate').textContent = new Date().toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'});
+</script>
+</body>
+</html>
