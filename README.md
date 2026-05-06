@@ -23,7 +23,7 @@ Créez une page web professionnelle pour votre restaurant, boutique ou service e
 ## Contact
 
 - 📧 contact@publishpro.ci
-- 📱 +225 07 07 07 07 07
+- 📱 +225 05 95 05 98 92
 - 🌍 Abidjan, Côte d'Ivoire
 
 ---

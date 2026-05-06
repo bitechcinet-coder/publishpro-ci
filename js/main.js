@@ -158,7 +158,7 @@ document.addEventListener('DOMContentLoaded', function() {
             );
             
             // Try WhatsApp first, fallback to showing contact info
-            window.open(`https://wa.me/2250707070707?text=${message}`, '_blank');
+            window.open(`https://wa.me/2250595059892?text=${message}`, '_blank');
         });
     });
 
